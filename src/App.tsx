@@ -7,7 +7,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
-import { FloatingBookBtn } from './components/FloatingBookBtn';
 import BackgroundMusic from './components/BackgroundMusic';
 import { RavanaBackground } from './components/RavanaBackground';
 
@@ -74,7 +73,6 @@ function App() {
         <Navbar />
         <AnimatedRoutes />
         <Footer />
-        <FloatingBookBtn />
       </Router>
     </ThemeProvider>
   );

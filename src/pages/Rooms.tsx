@@ -83,7 +83,6 @@ const Rooms = () => {
   return (
     <div className="bg-[var(--clr-void)] min-h-screen">
       <RoomsHero />
-      <BeSearchFormMobile />
       <RoomsFilterBar
         activeFilter={activeFilter}
         setActiveFilter={setActiveFilter}

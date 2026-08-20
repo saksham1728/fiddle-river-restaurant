@@ -75,18 +75,18 @@ export const Navbar = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center gap-3 hoverable group">
             <img
-              src="/logo.png"
-              alt="A'Lankaa Logo"
+              src="/logo.webp"
+              alt="Fiddle River Restaurant Logo"
               className="w-15 h-10"
             />
             <div className="flex flex-col">
               <h1 className="font-cormorant text-[22px] text-gold tracking-wide drop-shadow-sm">
-                A'LANKAA
+                FIDDLE RIVER
               </h1>
               <span
                 className={`font-jost text-[8px] uppercase tracking-[0.4em] mt-0.5 group-hover:text-gold transition-colors duration-300 ${logoSubColor}`}
               >
-                Resorts & Spa
+                Restaurant & Bar
               </span>
             </div>
           </Link>
@@ -161,8 +161,6 @@ export const Navbar = () => {
           </button>
         </div>
       </nav>
-
-      {!isPlacesPage && <BeSearchForm />}
 
       {/* Mobile menu */}
       <AnimatePresence>

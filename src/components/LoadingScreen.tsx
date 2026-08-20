@@ -5,7 +5,7 @@ export const LoadingScreen = () => {
   const [isComplete, setIsComplete] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
   const lineRef = useRef<HTMLDivElement>(null);
-  const imgRef = useRef<HTMLImageElement>(null);
+  const logoRef = useRef<HTMLDivElement>(null);
   const textRef = useRef<HTMLHeadingElement>(null);
   const subtitleRef = useRef<HTMLParagraphElement>(null);
   const counterRef = useRef<HTMLDivElement>(null);
@@ -15,22 +15,25 @@ export const LoadingScreen = () => {
       onComplete: () => setIsComplete(true),
     });
 
-
-    tl.fromTo(imgRef.current, {
+    // Logo fade in
+    tl.fromTo(logoRef.current, {
       opacity: 0,
+      scale: 0.8,
     }, {
       opacity: 1,
-      duration: 0.8,
+      scale: 1,
+      duration: 1,
       ease: 'power2.out',
     }, 0);
 
+    // Line animation
     tl.to(lineRef.current, {
       width: '60px',
       duration: 0.6,
       ease: 'power2.out',
-    }, 0.4);
+    }, 0.8);
 
-
+    // Text fade in
     tl.fromTo(textRef.current, {
       opacity: 0,
       y: 20,
@@ -39,22 +42,22 @@ export const LoadingScreen = () => {
       y: 0,
       duration: 0.6,
       ease: 'power3.out',
-    }, 0.8);
+    }, 1.2);
 
-
+    // Subtitle fade in
     tl.fromTo(subtitleRef.current, {
       opacity: 0,
     }, {
       opacity: 1,
       duration: 0.6,
       ease: 'fade',
-    }, 1.2);
+    }, 1.6);
 
-
+    // Counter animation
     if (counterRef.current) {
       tl.to(counterRef.current, {
         innerHTML: 100,
-        duration: 0.7,
+        duration: 0.8,
         snap: { innerHTML: 1 },
         ease: 'none',
         onUpdate: function () {
@@ -62,15 +65,15 @@ export const LoadingScreen = () => {
             counterRef.current.innerHTML = Math.round(this.targets()[0].innerHTML) + '%';
           }
         }
-      }, 1.8);
+      }, 2.0);
     }
 
-
+    // Screen exit
     tl.to(containerRef.current, {
       yPercent: -100,
       duration: 0.8,
       ease: 'power2.inOut',
-    }, 2.5);
+    }, 2.8);
 
     return () => {
       tl.kill();
@@ -86,9 +89,16 @@ export const LoadingScreen = () => {
     >
       <div className="flex flex-col items-center gap-4">
         <div className="flex flex-col items-center gap-2">
-          <img ref={imgRef} src="/logo.png" alt="A'Lankaa Logo" className="w-36 opacity-0" />
+          {/* Animated SVG Logo */}
+          <div ref={logoRef} className="w-48 h-48 opacity-0">
+            <img 
+              src="/logo.svg" 
+              alt="Fiddle River Restaurant Logo" 
+              className="w-full h-full object-contain"
+            />
+          </div>
           <h1 ref={textRef} className="font-cormorant text-[48px] text-ivory tracking-[0.3em] uppercase opacity-0 translate-y-5">
-            A'Lankaa
+            Fiddle River
           </h1>
         </div>
 
@@ -98,7 +108,7 @@ export const LoadingScreen = () => {
           ref={subtitleRef}
           className="font-jost text-[11px] text-gold tracking-[0.5em] uppercase opacity-0"
         >
-          Resorts & Spa
+          Restaurant & Bar
         </p>
       </div>
 
