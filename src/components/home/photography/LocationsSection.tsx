@@ -1,0 +1,117 @@
+import { useRef, useEffect } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { ArrowRight } from 'lucide-react';
+import { useNavigate } from 'react-router-dom';
+
+gsap.registerPlugin(ScrollTrigger);
+
+const locations = [
+  { num: "01", name: "Infinity Pool", img: "/images/pool new 1.webp", tags: ["Wedding", "Pre-shoot", "Western", "Lifestyle"], desc: "Our infinity pool appears to dissolve into the mountain horizon. At golden hour, the water mirrors the sky, creating reflections that make every frame look like a painting.", reverse: false },
+  { num: "02", name: "Sunrise Viewpoint", img: "/images/sunrise view 1.webp", tags: ["Kandyan", "Wedding", "Lifestyle", "Solo"], desc: "The most spectacular sunrise in Sri Lanka - witnessed from 1,200 metres. A private viewpoint accessible exclusively to A'Lankaa guests. Golden light. Misty valleys. Silence.", reverse: true, special: "BEST TIME:\n5:30 AM – 7:00 AM · Advance booking required" },
+  { num: "03", name: "The Carved Pavilion", img: "/images/kandiyan 2.webp", tags: ["Kandyan", "Wedding", "Western", "Editorial"], desc: "Step into a world of heritage craftsmanship - gilded woodwork, towering pillars, and warm chandelier light make this palatial interior the ultimate backdrop for Kandyan, Wedding, and Editorial shoots.", reverse: false },
+  { num: "04", name: "The Royal Sanctum", img: "/images/kandiyan 3.webp", tags: ["Kandyan", "Wedding", "Family", "Lifestyle"], desc: "A palatial hall of carved wood, stone guardians, and a grand chandelier - where heritage meets timeless elegance.", reverse: true }
+];
+
+const LocationsSection = () => {
+  return (
+    <section className="bg-obsidian">
+      {locations.map((loc, i) => (
+        <LocationRow key={i} loc={loc} />
+      ))}
+    </section>
+  );
+};
+
+const LocationRow = ({ loc }: any) => {
+  const navigate = useNavigate();
+  const rowRef = useRef<HTMLDivElement>(null);
+  const imgRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    let ctx = gsap.context(() => {
+      gsap.fromTo(imgRef.current,
+        { clipPath: loc.reverse ? 'inset(0 0 0 100%)' : 'inset(0 100% 0 0)' },
+        {
+          clipPath: 'inset(0 0% 0 0)',
+          duration: 1.5,
+          ease: 'power3.inOut',
+          scrollTrigger: {
+            trigger: rowRef.current,
+            start: 'top 80%'
+          }
+        }
+      );
+    }, rowRef);
+    return () => ctx.revert();
+  }, [loc.reverse]);
+
+  return (
+    <div ref={rowRef} className={`flex flex-col md:flex-row h-auto min-h-[85vh] ${loc.reverse ? 'bg-obsidian' : 'bg-void'}`}>
+      {/* img panel */}
+      <div className={`w-full h-[50vh] md:h-auto md:w-[55%] relative flex items-center justify-center p-8 md:p-20 ${loc.reverse ? 'order-1 md:order-2' : 'order-1'}`}>
+        <div ref={imgRef} className="relative w-full h-full max-h-[70vh] bg-transparent overflow-hidden shadow-2xl">
+          <img src={loc.img} alt={loc.name} className="absolute inset-0 w-full h-full object-cover" />
+        </div>
+      </div>
+
+      {/* cont panel */}
+      <div className={`w-full md:w-[45%] p-10 md:p-[80px_64px] flex flex-col justify-center relative ${loc.reverse ? 'order-2 md:order-1 bg-obsidian' : 'order-2 bg-void'}`}>
+        <span className="absolute top-10 right-10 font-cormorant text-[120px] text-gold opacity-5 leading-none pointer-events-none select-none hidden md:block">
+          {loc.num}
+        </span>
+
+        <div data-aos="fade-up" data-aos-offset="100">
+          <span className="font-jost text-[13px] text-gold uppercase tracking-[0.3em] block mb-4">Shoot Location</span>
+          <h2 className="font-cormorant text-[clamp(36px,4vw,60px)] text-ivory leading-none mb-6">{loc.name}</h2>
+          <div className="w-[48px] h-[1px] bg-gold/50 mb-6" />
+
+          <p className="font-dmSans text-[17px] font-light text-smoke leading-[1.9] mb-8 max-w-[440px]">
+            {loc.desc}
+          </p>
+
+          <div className="flex flex-wrap gap-6 lg:gap-8 mb-10 max-w-[480px]">
+            {loc.tags.map((t: string) => {
+              const tagIconMap: Record<string, string> = {
+                "Wedding": "/icons/wedding.png",
+                "Pre-shoot": "/icons/photoshoot.png",
+                "Western": "/icons/western.png",
+                "Lifestyle": "/icons/lifestyle.png",
+                "Kandyan": "/icons/kandyan.png",
+                "Editorial": "/icons/editorial.png",
+                "Family": "/icons/family.png",
+                "Solo": "/icons/solo.png"
+              };
+
+              return (
+                <div key={t} className="flex flex-col items-center gap-3 group">
+                  {tagIconMap[t] && (
+                    <div className="w-10 h-10 flex items-center justify-center opacity-70 group-hover:opacity-100 transition-opacity">
+                      <img src={tagIconMap[t]} alt={t} className="w-full h-full object-contain filter brightness-0 invert sepia-[1] hue-rotate-[10deg] saturate-[3] opacity-60" style={{ filter: "brightness(0) saturate(100%) invert(86%) sepia(21%) saturate(762%) hue-rotate(338deg) brightness(88%) contrast(85%)" }} />
+                    </div>
+                  )}
+                  <span className="font-jost text-[10px] text-gold uppercase tracking-wider">
+                    {t}
+                  </span>
+                </div>
+              );
+            })}
+          </div>
+
+          {loc.special && (
+            <div className="bg-gold/5 border-l-2 border-gold p-[16px_20px] mb-10 max-w-[400px]">
+              <span className="font-jost text-[10px] text-fog uppercase block mb-1">BEST TIME:</span>
+              <span className="font-dmSans text-[14px] text-cream whitespace-pre-line">{loc.special.split(':\n')[1]}</span>
+            </div>
+          )}
+
+          <button onClick={() => navigate('/booking')} className="font-jost text-[11px] text-ivory border border-gold/40 px-8 py-4 uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-void transition-colors duration-300 inline-flex items-center gap-3">
+            Book This Location <ArrowRight size={14} />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default LocationsSection;
