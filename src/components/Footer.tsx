@@ -105,7 +105,7 @@ export const Footer = () => {
         {/* lower foot */}
         <div className="border-t border-mist px-6 md:px-20 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-dmSans text-[14px] text-fog">
-            © 2025 Fiddle River Restaurant & Bar. All rights reserved.
+            © 2026 Fiddle River Restaurant & Bar. All rights reserved.
           </p>
           <div className="flex items-center gap-4 font-dmSans text-[14px] text-fog">
             <Link to="/privacy" className="hover:text-gold transition-colors hoverable">Privacy Policy</Link>
