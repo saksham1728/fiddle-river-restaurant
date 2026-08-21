@@ -43,7 +43,6 @@ export const Footer = () => {
                 { label: 'Menu', path: '/menu' },
                 { label: 'Gallery', path: '/gallery' },
                 { label: 'Contact', path: '/contact' },
-                { label: 'Reserve Now', path: '/booking' },
               ].map(({ label, path }) => (
                 <li key={label}>
                   <Link
