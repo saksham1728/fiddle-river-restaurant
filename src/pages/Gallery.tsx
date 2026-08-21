@@ -30,7 +30,6 @@ const Gallery = () => {
   return (
     <main className="min-h-screen bg-void w-full overflow-hidden">
       <GalleryHero />
-      <BeSearchFormMobile />
       <GalleryFilter
         categories={CATEGORIES}
         activeTab={activeCategory}

@@ -10,7 +10,7 @@ import 'aos/dist/aos.css';
 import { LocationShowcase } from '../components/home/LocationShowcase';
 import MistCanvas from '../components/MistCanvas';
 import ReviewsSection from '../components/home/ReviewsSection';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
+import MountainIntro from '../components/home/MountainIntro';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -118,49 +118,9 @@ export const Home = () => {
           </button>
         </div>
       </section>
-      <BeSearchFormMobile />
-      {/* info sec */}
-      <section
-        className="py-32 px-6 md:px-20 relative bg-obsidian overflow-hidden group"
-        onMouseMove={handleMouseMove}
-      >
-
-        <div className="pointer-events-none absolute -inset-px opacity-0 transition duration-500 group-hover:opacity-100 mix-blend-screen"
-          style={{ background: 'radial-gradient(800px circle at var(--mouse-x) var(--mouse-y), rgba(184,150,90,0.06), transparent 40%)' }}
-        />
-
-        <div className="max-w-4xl mx-auto text-center relative z-10">
-          <h2 className="font-dmSerif text-[36px] md:text-[64px] text-ivory mb-12">
-            A Sanctuary Above the Clouds.
-          </h2>
-          <p className="font-dmSans text-[19px] text-smoke leading-relaxed max-w-2xl mx-auto">
-            Perched 1,200 meters above sea level in the misty mountains of Haldummulla, A'Lankaa Resorts & Spa is an immersive digital experience a retreat where architectural elegance seamlessly blends with breathtaking natural panoramas.
-          </p>
-
-          <div className="flex justify-center items-center gap-10 md:gap-20 mt-16 md:mt-24 pointer-events-auto">
-            {[
-              "/icons/clouds.png",
-              "/icons/sun.png",
-              "/icons/trees.png",
-              "/icons/moon.png"
-            ].map((iconPath, i) => (
-              <motion.img
-                key={i}
-                src={iconPath}
-                alt="Placeholder Icon"
-                animate={{ y: [0, -12, 0] }}
-                transition={{
-                  duration: 3.5,
-                  repeat: Infinity,
-                  ease: "easeInOut",
-                  delay: i * 0.4
-                }}
-                className="w-12 h-12 md:w-16 md:h-16 object-contain opacity-70 hover:opacity-100 transition-opacity cursor-pointer"
-              />
-            ))}
-          </div>
-        </div>
-      </section>
+      
+      {/* Mountain Intro with Clouds Effect */}
+      <MountainIntro />
 
       {/* feat sec */}
       <section

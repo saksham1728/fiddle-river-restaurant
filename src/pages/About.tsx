@@ -18,7 +18,6 @@ export const About = () => {
       className="bg-void min-h-screen" 
     >
       <Hero />
-      <BeSearchFormMobile />
       <OriginStory />
       <Philosophy />
       <Timeline />

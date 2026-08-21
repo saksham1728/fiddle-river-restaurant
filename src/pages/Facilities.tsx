@@ -10,7 +10,6 @@ import FacilitiesIntro from '../components/facilities/FacilitiesIntro';
 import FacilitySection from '../components/facilities/FacilitySection';
 import ServicesGrid from '../components/facilities/ServicesGrid';
 import SpaTreatments from '../components/facilities/SpaTreatments';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -50,7 +49,6 @@ const Facilities = () => {
     <div className="bg-[var(--clr-void)] min-h-screen">
       {/* hero sec */}
       <FacilitiesHero />
-      <BeSearchFormMobile />
       {/* intro */}
       <FacilitiesIntro />
 
