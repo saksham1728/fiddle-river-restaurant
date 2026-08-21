@@ -13,7 +13,6 @@ import RoomsPricingCalculator from '../components/rooms/RoomsPricingCalculator';
 import RoomsContact from '../components/rooms/RoomsContact';
 import { suites } from '../data/roomsData';
 import { useSuitePricing, SLUG_MAP } from '../hooks/useSuitePricing';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
 
 gsap.registerPlugin(ScrollTrigger);
 

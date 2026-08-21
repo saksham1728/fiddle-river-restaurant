@@ -5,7 +5,6 @@ import ContactForm from '../components/contact/ContactForm';
 import ContactInfoCard from '../components/contact/ContactInfoCard';
 import ContactMapSection from '../components/contact/ContactMapSection';
 import ContactFAQ from '../components/contact/ContactFAQ';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
 
 const Contact = () => {
   useEffect(() => {

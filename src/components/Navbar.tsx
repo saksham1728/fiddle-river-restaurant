@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Info, Bed, Sparkles, Image, Mail, Volume2, VolumeX } from 'lucide-react';
-import { AnimatePresence, motion } from 'framer-motion';
-import BeSearchForm from "./beForms/BeSearchForm.tsx";
+import { Home, Info, Sparkles, Image, Mail, Volume2, VolumeX } from 'lucide-react';
+import { motion } from 'framer-motion';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);

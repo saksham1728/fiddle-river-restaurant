@@ -6,7 +6,6 @@ import { Timeline } from '../components/about/Timeline';
 
 import { Awards } from '../components/about/Awards';
 import { Location } from '../components/about/Location';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
 
 export const About = () => {
   return (
