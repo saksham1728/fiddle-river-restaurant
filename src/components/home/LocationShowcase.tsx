@@ -263,7 +263,7 @@ const Part2Attractions = () => {
   ];
 
   return (
-    <section className="bg-obsidian py-[60px] lg:py-[80px] px-[32px] lg:px-[80px]">
+    <section className="bg-gradient-to-b from-[#1a3d2e] via-[#15322a] to-[#0f2319] py-[60px] lg:py-[80px] px-[32px] lg:px-[80px]">
       <div className="max-w-[1440px] mx-auto">
 
         {/* header */}
