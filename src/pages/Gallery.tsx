@@ -8,7 +8,6 @@ import GalleryVideos from '../components/gallery/GalleryVideos';
 import GalleryDrone from '../components/gallery/GalleryDrone';
 import GalleryInstagram from '../components/gallery/GalleryInstagram';
 import { CATEGORIES, MOCK_IMAGES } from '../data/galleryData';
-import BeSearchFormMobile from "../components/beForms/BeSearchFormMobile.tsx";
 
 const Gallery = () => {
   const [activeCategory, setActiveCategory] = useState<string>(CATEGORIES[0]);

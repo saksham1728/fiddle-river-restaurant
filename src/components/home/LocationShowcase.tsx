@@ -2,7 +2,7 @@ import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Plane, Car, Train, MapPin, ArrowUpRight, Star, ArrowRight } from 'lucide-react';
+import { Plane, Car, MapPin, ArrowUpRight, Star, ArrowRight } from 'lucide-react';
 import { useNavigate } from 'react-router-dom';
 
 gsap.registerPlugin(ScrollTrigger);
