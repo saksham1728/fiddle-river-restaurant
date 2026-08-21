@@ -187,12 +187,9 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import { ref, push } from "firebase/database";
-import { database } from "../../config/firebaseConfig";
 
 const ContactForm = () => {
   const [isSubmitted, setIsSubmitted] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -204,40 +201,10 @@ const ContactForm = () => {
 
   const [focusedField, setFocusedField] = useState<string | null>(null);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
-    setIsLoading(true);
-
-    try {
-      const inquiryData = {
-        // Contact Details
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-
-        // Inquiry Details
-        subject: formData.subject,
-        message: formData.message,
-
-        // Status
-        status: "New",
-        source: "Website",
-
-        // Metadata
-        createdAt: Date.now(),
-        updatedAt: Date.now(),
-      };
-
-      const inquiriesRef = ref(database, "inquiries");
-      await push(inquiriesRef, inquiryData);
-
-      setIsSubmitted(true);
-    } catch (error) {
-      console.error("Error saving inquiry:", error);
-      alert("There was an error sending your message. Please try again or contact us directly.");
-    } finally {
-      setIsLoading(false);
-    }
+    // Static response - no actual submission yet
+    setIsSubmitted(true);
   };
 
   const handleFocus = (field: string) => setFocusedField(field);
@@ -322,9 +289,9 @@ const ContactForm = () => {
                 >
                   <option value="" disabled hidden></option>
                   <option value="general" className="bg-obsidian text-cream">General Inquiry</option>
-                  <option value="room" className="bg-obsidian text-cream">Room Reservation</option>
-                  <option value="spa" className="bg-obsidian text-cream">Spa Booking</option>
-                  <option value="event" className="bg-obsidian text-cream">Group / Event</option>
+                  <option value="reservation" className="bg-obsidian text-cream">Table Reservation</option>
+                  <option value="catering" className="bg-obsidian text-cream">Catering / Private Events</option>
+                  <option value="menu" className="bg-obsidian text-cream">Menu Information</option>
                   <option value="feedback" className="bg-obsidian text-cream">Feedback</option>
                   <option value="other" className="bg-obsidian text-cream">Other</option>
                 </select>
@@ -364,11 +331,9 @@ const ContactForm = () => {
 
               <button
                 type="submit"
-                disabled={isLoading}
-                className={`w-full sm:w-auto font-jost text-[12px] uppercase tracking-[0.15em] bg-gold text-void py-4 px-12 transition-colors duration-300 flex items-center justify-center gap-2
-                  ${isLoading ? 'opacity-60 cursor-not-allowed' : 'hover:bg-gold-light'}`}
+                className="w-full sm:w-auto font-jost text-[12px] uppercase tracking-[0.15em] bg-gold text-void py-4 px-12 hover:bg-gold-light transition-colors duration-300 flex items-center justify-center gap-2"
               >
-                {isLoading ? 'Sending...' : <> Send Message <span className="text-[14px]">→</span> </>}
+                Send Message <span className="text-[14px]">→</span>
               </button>
             </div>
           </motion.form>
