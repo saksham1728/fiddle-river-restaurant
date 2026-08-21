@@ -7,7 +7,6 @@ import { CustomCursor } from './components/CustomCursor';
 import { Navbar } from './components/Navbar';
 import { Footer } from './components/Footer';
 import { ScrollProgress } from './components/ScrollProgress';
-import BackgroundMusic from './components/BackgroundMusic';
 import { RavanaBackground } from './components/RavanaBackground';
 
 const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })));
@@ -63,7 +62,6 @@ function App() {
     <ThemeProvider>
       <Router>
         <LoadingScreen />
-        <BackgroundMusic />
         <RavanaBackground />
 
         {enableEnhancedFx && <CustomCursor />}

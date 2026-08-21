@@ -1,41 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Home, Info, Sparkles, Image, Mail, Volume2, VolumeX } from 'lucide-react';
+import { Home, Info, Sparkles, Image, Mail } from 'lucide-react';
 import { motion } from 'framer-motion';
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMusicMuted, setIsMusicMuted] = useState(false);
   const location = useLocation();
   const isDark = true; // Always dark theme
   const isMenuPage = location.pathname === '/menu';
-  
-  // Music control - directly interact with the music button and track state
-  const handleMusicToggle = () => {
-    const musicBtn = document.getElementById('music-toggle-btn');
-    if (musicBtn) {
-      musicBtn.click();
-      // Toggle local state
-      setIsMusicMuted(!isMusicMuted);
-    }
-  };
-
-  // Sync with actual music state on mount
-  useEffect(() => {
-    const checkMusicState = () => {
-      const musicBtn = document.getElementById('music-toggle-btn');
-      if (musicBtn) {
-        // Check if VolumeX icon exists (muted state)
-        const isMuted = musicBtn.querySelector('svg')?.getAttribute('data-lucide') === 'volume-x';
-        setIsMusicMuted(isMuted);
-      }
-    };
-    
-    // Check initially after a delay
-    const timer = setTimeout(checkMusicState, 2000);
-    
-    return () => clearTimeout(timer);
-  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -168,19 +140,14 @@ export const Navbar = () => {
               </Link>
           </div>
 
-          {/* Mobile: Music toggle only */}
+          {/* Mobile: Contact link */}
           <div className="lg:hidden">
-            <button
-              onClick={handleMusicToggle}
-              className="relative w-10 h-10 flex items-center justify-center rounded-full border border-gold/30 hover:border-gold transition-colors duration-300 bg-transparent hover:bg-gold/10"
-              aria-label="Toggle music"
+            <Link
+              to="/contact"
+              className="font-dmSans text-[13px] tracking-[0.05em] text-gold hover:text-gold/80 transition-colors duration-300 px-4 py-2 border border-gold/30 hover:border-gold rounded-sm"
             >
-              {isMusicMuted ? (
-                <VolumeX className="w-5 h-5 text-gold/50" strokeWidth={1.5} />
-              ) : (
-                <Volume2 className="w-5 h-5 text-gold" strokeWidth={1.5} />
-              )}
-            </button>
+              Contact
+            </Link>
           </div>
         </div>
       </nav>
