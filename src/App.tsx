@@ -12,6 +12,7 @@ import { RavanaBackground } from './components/RavanaBackground';
 
 const Home = lazy(() => import('./pages/Home').then((m) => ({ default: m.Home })));
 const About = lazy(() => import('./pages/About').then((m) => ({ default: m.About })));
+const Menu = lazy(() => import('./pages/Menu'));
 const PlaceholderPage = lazy(() => import('./pages/PlaceholderPage').then((m) => ({ default: m.PlaceholderPage })));
 const Rooms = lazy(() => import('./pages/Rooms'));
 const Facilities = lazy(() => import('./pages/Facilities'));
@@ -34,6 +35,7 @@ const AnimatedRoutes = () => {
         <Routes location={location} key={location.pathname}>
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<About />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/rooms" element={<Rooms />} />
           <Route path="/facilities" element={<Facilities />} />
           <Route path="/gallery" element={<Gallery />} />

@@ -24,7 +24,7 @@ const MountainIntro = () => {
             transition={{ duration: 0.8 }}
             className="font-cormorant text-[42px] md:text-[72px] text-ivory mb-6 leading-tight"
           >
-            Where Mountains Meet Culinary Excellence
+            Where Rockies Meet Exceptional Dining
           </motion.h2>
           
           <motion.p 
@@ -34,7 +34,7 @@ const MountainIntro = () => {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="font-jost text-[18px] md:text-[22px] text-cream/90 leading-relaxed max-w-3xl mx-auto mb-6"
           >
-            Nestled high in the mountains, Fiddle River Restaurant offers breathtaking panoramic views alongside exceptional cuisine. Experience dining elevated to new heights.
+            Located on the 2nd floor in the heart of Jasper National Park, Fiddle River Restaurant offers stunning mountain views alongside fresh seafood, wild game, and authentic Canadian flavours.
           </motion.p>
           
           <motion.p 
@@ -44,7 +44,7 @@ const MountainIntro = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="font-jost text-[16px] md:text-[18px] text-cream/70 leading-relaxed max-w-2xl mx-auto mb-12"
           >
-            Every table offers a view, every dish tells a story, and every moment becomes a memory against the stunning mountain backdrop.
+            Since 1993, we've been serving exceptional food with genuine hospitality. Every dish celebrates local ingredients, every table overlooks Jasper's beautiful mountains, and every visit becomes part of your mountain adventure.
           </motion.p>
 
           {/* Stats Grid */}
@@ -56,10 +56,10 @@ const MountainIntro = () => {
             className="grid grid-cols-2 md:grid-cols-4 gap-8 max-w-4xl mx-auto"
           >
             {[
-              { number: '2,000m', label: 'Elevation' },
-              { number: '360°', label: 'Panoramic Views' },
-              { number: '100%', label: 'Fresh Ingredients' },
-              { number: '5★', label: 'Experience' },
+              { number: '1993', label: 'Established' },
+              { number: '30+', label: 'Years of Excellence' },
+              { number: 'Fresh', label: 'Local Ingredients' },
+              { number: 'Jasper', label: 'Heart of the Rockies' },
             ].map((item, index) => (
               <motion.div 
                 key={index} 

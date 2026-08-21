@@ -9,6 +9,7 @@ export const Navbar = () => {
   const [isMusicMuted, setIsMusicMuted] = useState(false);
   const location = useLocation();
   const isDark = true; // Always dark theme
+  const isMenuPage = location.pathname === '/menu';
   
   // Music control - directly interact with the music button and track state
   const handleMusicToggle = () => {
@@ -54,8 +55,8 @@ export const Navbar = () => {
   ];
 
   // ── Derived states ──────────────────────────────────────────
-  const isDarkHero = !isScrolled && isDark;
-  const isSolid = isScrolled || !isDark;
+  const isDarkHero = !isScrolled && isDark && !isMenuPage;
+  const isSolid = isScrolled || !isDark || isMenuPage;
 
   // Nav link color
   const navLinkColor = isDarkHero
@@ -79,7 +80,7 @@ export const Navbar = () => {
           isSolid ? 'py-4' : 'py-4 md:py-6'
         }`}
         style={{
-          backgroundColor: isScrolled
+          backgroundColor: (isScrolled || isMenuPage)
             ? isDark ? 'rgba(8,8,8,0.92)' : 'rgba(255,255,255,0.98)'
             : isDark ? 'transparent' : 'rgba(255,255,255,0.95)',
           boxShadow: isSolid

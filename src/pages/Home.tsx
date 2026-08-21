@@ -129,7 +129,7 @@ export const Home = () => {
       {/* feat sec */}
       <section
         ref={sectionRef}
-        className="py-16 px-6 md:px-20 bg-void max-w-[1920px] mx-auto min-h-screen flex items-center relative overflow-hidden group"
+        className="py-16 px-6 md:px-20 bg-void max-w-[1920px] mx-auto min-h-screen flex items-center relative overflow-hidden"
         onMouseMove={handleMouseMove}
       >
 
@@ -137,17 +137,62 @@ export const Home = () => {
           style={{ background: 'radial-gradient(1000px circle at var(--mouse-x) var(--mouse-y), rgba(255,255,255,0.03), transparent 40%)' }}
         />
 
-        <div className="flex flex-col items-center max-w-3xl mx-auto w-full relative z-10 text-center">
-          <span className="font-jost text-[10px] text-gold uppercase tracking-[0.2em] mb-4 block">The Architecture</span>
-          <h3 className="font-cormorant text-[36px] md:text-[48px] text-ivory mb-6 leading-tight">
-            Crafted from the Earth.
-          </h3>
-          <p className="font-dmSans text-[19px] text-smoke mb-10 leading-relaxed">
-            Every space within A'Lankaa has been thoughtfully designed to disappear into its surroundings. We utilize locally sourced stone, aged timber, and vast expanses of glass to ensure that nature remains the ultimate centerpiece.
-          </p>
-          <button onClick={() => navigate('/rooms')} className="border-b border-gold pb-2 font-jost text-[11px] text-gold uppercase tracking-widest hover:text-cream transition-colors group">
-            Discover the Suites <span className="inline-block group-hover:translate-x-2 transition-transform">→</span>
-          </button>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 max-w-7xl mx-auto w-full relative z-10 items-center">
+          
+          {/* Left Side - Menu Content */}
+          <div className="flex flex-col text-left">
+            <span className="font-jost text-[10px] text-gold uppercase tracking-[0.2em] mb-4 block">Our Menu</span>
+            <h3 className="font-cormorant text-[36px] md:text-[48px] text-ivory mb-6 leading-tight">
+              Fresh from Ocean to Rockies.
+            </h3>
+            <p className="font-dmSans text-[18px] text-smoke leading-relaxed mb-8">
+              Since 1993, Fiddle River has been celebrated for fresh seafood flown in daily, alongside wild game and Alberta AAA beef. Our menu features Earl Grey Smoked Candied Salmon, Creamy Seafood Chowder, Coconut Prawns, and locally-sourced ingredients that honour Western Canada's culinary heritage.
+            </p>
+            <button onClick={() => navigate('/menu')} className="self-start border-b border-gold pb-2 font-jost text-[11px] text-gold uppercase tracking-widest hover:text-cream transition-colors group">
+              Explore the Menu <span className="inline-block group-hover:translate-x-2 transition-transform">→</span>
+            </button>
+          </div>
+
+          {/* Right Side - Dark Green Card */}
+          <div className="bg-gradient-to-br from-[#0f2319] to-[#1a3d2e] border border-[#2d5a45] rounded-lg p-8 md:p-10 shadow-2xl">
+            <h4 className="font-cormorant text-[32px] md:text-[40px] text-ivory mb-6 leading-tight text-center">
+              Join us for Lunch or Dinner
+            </h4>
+            
+            <div className="space-y-4 mb-8 text-center">
+              <div>
+                <p className="font-jost text-[13px] text-gold uppercase tracking-widest mb-2">
+                  Fiddle River Restaurant is open daily
+                </p>
+              </div>
+              
+              <div className="space-y-3">
+                <div className="border-t border-[#2d5a45] pt-3">
+                  <p className="font-dmSans text-[16px] text-cream/90 mb-1">
+                    <span className="text-gold font-medium">Lunch</span> from 11:30am to 5:00pm
+                  </p>
+                </div>
+                
+                <div className="border-t border-[#2d5a45] pt-3">
+                  <p className="font-dmSans text-[16px] text-cream/90 mb-1">
+                    <span className="text-gold font-medium">Dinner</span> daily from 5:00pm to 9:00pm
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <p className="font-jost text-[13px] text-cream/70 text-center mb-6 italic">
+              We look forward to serving you!
+            </p>
+
+            <button 
+              onClick={() => navigate('/booking')}
+              className="w-full bg-gold hover:bg-gold/90 text-[#0f2319] font-jost text-[12px] uppercase tracking-widest py-4 px-8 transition-all duration-300 hover:scale-[1.02] font-semibold"
+            >
+              Reserve Your Table
+            </button>
+          </div>
+
         </div>
       </section>
 
