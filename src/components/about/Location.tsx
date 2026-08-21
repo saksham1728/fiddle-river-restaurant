@@ -8,7 +8,7 @@ export const Location = () => {
         {/* actual map embed */}
         <div className="relative w-full h-[500px] border border-mist overflow-hidden shadow-2xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2364.515687!2d-118.0811!3d52.8764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5383d44a20ce7b85%3A0x7f7e8b9c8a8b8c8d!2sFiddle%20River%20Restaurant!5e0!3m2!1sen!2sca!4v1234567890"
+            src="https://www.google.com/maps?q=fiddle+river+restaurant&z=14&t=k&hl=en&output=embed"
             width="100%"
             height="100%"
             style={{ border: 0 }}
@@ -70,7 +70,7 @@ export const Location = () => {
             </div>
           </div>
 
-          <a href="https://www.google.com/maps/place/620+Connaught+Dr,+Jasper,+AB"
+          <a href="https://maps.google.com/?q=fiddle+river+restaurant"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center font-jost text-[11px] uppercase tracking-[0.2em] text-gold border border-gold/40 px-8 py-4 hover:border-gold hover:bg-gold/5 transition-colors duration-500 group"
