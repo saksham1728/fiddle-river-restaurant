@@ -1,8 +1,18 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+
+interface MenuItem {
+  name: string;
+  price: number | string;
+  description?: string;
+  badge?: string;
+  featured?: boolean;
+}
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<'lunch' | 'dinner' | 'drinks' | 'happy'>('lunch');
+  const vantaRef = useRef<HTMLDivElement>(null);
+  const vantaEffect = useRef<any>(null);
 
   // Helper function to display badge text
   const getBadgeText = (badge: string) => {
@@ -22,6 +32,52 @@ const Menu = () => {
     };
   }, []);
 
+  // Initialize Vanta.js Topology
+  useEffect(() => {
+    const initVanta = () => {
+      if (!vantaEffect.current && vantaRef.current) {
+        // Check if VANTA is loaded
+        if (typeof (window as any).VANTA !== 'undefined') {
+          try {
+            vantaEffect.current = (window as any).VANTA.TOPOLOGY({
+              el: vantaRef.current,
+              mouseControls: true,
+              touchControls: true,
+              gyroControls: false,
+              minHeight: 200.00,
+              minWidth: 200.00,
+              scale: 1.00,
+              scaleMobile: 1.00,
+              color: 0xb8965a,
+              backgroundColor: 0x0f2319
+            });
+            console.log('Vanta Topology initialized successfully');
+          } catch (error) {
+            console.error('Error initializing Vanta:', error);
+          }
+        } else {
+          // Retry after a delay if VANTA not loaded yet
+          console.log('Waiting for VANTA to load...');
+          setTimeout(initVanta, 100);
+        }
+      }
+    };
+
+    // Add a small delay to ensure DOM is ready
+    const timer = setTimeout(initVanta, 500);
+    
+    return () => {
+      clearTimeout(timer);
+      if (vantaEffect.current) {
+        try {
+          vantaEffect.current.destroy();
+        } catch (error) {
+          console.error('Error destroying Vanta:', error);
+        }
+      }
+    };
+  }, []);
+
   const tabs = [
     { id: 'lunch' as const, label: 'Lunch', time: '11:30am - 5:00pm' },
     { id: 'dinner' as const, label: 'Dinner', time: '5:00pm - 9:00pm' },
@@ -29,7 +85,7 @@ const Menu = () => {
     { id: 'happy' as const, label: 'Happy Hour', time: '3:00pm - 6:00pm' },
   ];
 
-  const lunchMenu = {
+  const lunchMenu: Record<string, MenuItem[]> = {
     'Soups & Salads': [
       { name: 'French Onion Soup', price: 14, description: 'Caramelized onions, beef broth & IPA, Swiss & Parmesan' },
       { name: 'Smoked Seafood Chowder', price: '14 - 23', description: 'Assorted seafood, creamy New England style' },
@@ -64,7 +120,7 @@ const Menu = () => {
     ],
   };
 
-  const dinnerMenu = {
+  const dinnerMenu: Record<string, MenuItem[]> = {
     'From the Soup Kettle': [
       { name: 'Smoked Seafood Chowder', price: '14 - 21', description: 'Assorted seafood, creamy New England style, chive confetti' },
       { name: 'French Onion Soup', price: 14, description: 'Caramelized onions, beef broth & IPA, Swiss & Parmesan' },
@@ -115,7 +171,7 @@ const Menu = () => {
     ],
   };
 
-  const drinksMenu = {
+  const drinksMenu: Record<string, MenuItem[]> = {
     'Martini': [
       { name: 'Haskap Berry Martini', price: 12.50, description: 'Eau Clair Flourish gin, haskap berry jam, lemon, simple syrup', featured: true },
       { name: 'Espresso Martini', price: 12.50, description: 'Vodka, Kahlua, espresso, simple syrup' },
@@ -176,7 +232,7 @@ const Menu = () => {
     ],
   };
 
-  const happyHourMenu = {
+  const happyHourMenu: Record<string, MenuItem[]> = {
     'Small Plates': [
       { name: 'Forest Mushroom Bruschetta', price: 10, description: '$10 Each' },
       { name: 'Wedge Salad', price: 10, description: '$10 Each' },
@@ -192,9 +248,9 @@ const Menu = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-[#1a3d2e] via-[#15322a] to-[#0f2319]">
+    <div ref={vantaRef} className="min-h-screen relative">
       {/* Menu Tabs - Responsive */}
-      <div className="border-y border-[#3d6a55]/40 sticky top-[72px] lg:top-[80px] z-40 bg-[#1a3d2e] backdrop-blur-xl shadow-lg overflow-x-auto">
+      <div className="border-y border-[#3d6a55]/40 sticky top-[72px] lg:top-[80px] z-40 bg-[#1a3d2e]/80 backdrop-blur-xl shadow-lg overflow-x-auto">
         <div className="max-w-4xl mx-auto">
           {/* Desktop: Horizontal centered */}
           <div className="hidden md:flex justify-center gap-12 px-6 py-6">
@@ -255,7 +311,7 @@ const Menu = () => {
               </p>
             </div>
 
-            {Object.entries(lunchMenu).map(([category, items], catIndex) => (
+            {Object.entries(lunchMenu).map(([category, items]) => (
               <div key={category} className="mb-20">
                 <h2 className="font-cormorant text-[36px] text-gold mb-12 text-center">
                   {category}
@@ -356,7 +412,7 @@ const Menu = () => {
               </p>
             </div>
 
-            {Object.entries(dinnerMenu).map(([category, items], catIndex) => (
+            {Object.entries(dinnerMenu).map(([category, items]) => (
               <div key={category} className="mb-20">
                 <h2 className="font-cormorant text-[36px] text-gold mb-12 text-center">
                   {category}
@@ -475,7 +531,7 @@ const Menu = () => {
               </p>
             </div>
 
-            {Object.entries(drinksMenu).map(([category, items], catIndex) => (
+            {Object.entries(drinksMenu).map(([category, items]) => (
               <div key={category} className="mb-20">
                 <h2 className="font-cormorant text-[36px] text-gold mb-12 text-center">
                   {category}
@@ -719,7 +775,7 @@ const Menu = () => {
               <p className="font-dmSans text-[18px] text-ivory">All Beer & Wine</p>
             </div>
 
-            {Object.entries(happyHourMenu).map(([category, items], catIndex) => (
+            {Object.entries(happyHourMenu).map(([category, items]) => (
               <div key={category} className="mb-20">
                 <h2 className="font-cormorant text-[36px] text-gold mb-12 text-center">
                   {category}
