@@ -1,4 +1,4 @@
-import { CarFront, Train, Mountain } from 'lucide-react';
+import { Phone, MapPin, Clock } from 'lucide-react';
 
 export const Location = () => {
   return (
@@ -8,52 +8,69 @@ export const Location = () => {
         {/* actual map embed */}
         <div className="relative w-full h-[500px] border border-mist overflow-hidden shadow-2xl">
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3962.1238766811343!2d80.87856239999999!3d6.754744499999999!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae47716d84e3dcd%3A0xf107acadc6ee0026!2sA&#39;Lankaa%20Resorts%20%26%20Spa!5e0!3m2!1sen!2slk!4v1778145566198!5m2!1sen!2slk"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2364.515687!2d-118.0811!3d52.8764!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x5383d44a20ce7b85%3A0x7f7e8b9c8a8b8c8d!2sFiddle%20River%20Restaurant!5e0!3m2!1sen!2sca!4v1234567890"
             width="100%"
             height="100%"
             style={{ border: 0 }}
             allowFullScreen={true}
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
-            title="A'Lankaa Resorts & Spa Location"
+            title="Fiddle River Restaurant Location"
             className="filter grayscale-[0.2] contrast-[1.1] hover:grayscale-0 transition-all duration-700"
           ></iframe>
         </div>
 
-        {/* rght cont */}
+        {/* right content */}
         <div>
-          <h2 className="font-cormorant text-[clamp(32px,4vw,48px)] text-ivory font-light mb-10">
-            How to Find Us
+          <h2 className="font-cormorant text-[clamp(32px,4vw,48px)] text-ivory font-light mb-4">
+            Visit Us
           </h2>
+          
+          <h3 className="font-jost text-[16px] text-gold mb-6">
+            Special Requests?
+          </h3>
+          
+          <p className="font-dmSans font-light text-[15px] text-smoke/90 leading-relaxed mb-10">
+            Do you have dietary concerns? Questions about an upcoming take-out? Drop us a line, and we'll get back to you soon!
+          </p>
 
           <div className="space-y-6 mb-12">
-            <div className="flex items-center gap-4 group cursor-default">
-              <CarFront className="w-5 h-5 text-gold stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-1" />
-              <p className="font-dmSans font-light tracking-wide text-[15px] text-smoke/90">32km from Badulla City</p>
+            <div className="flex items-start gap-4 group cursor-default">
+              <MapPin className="w-5 h-5 text-gold stroke-[1.5] mt-1 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1" />
+              <div>
+                <h4 className="font-jost text-[10px] text-gold tracking-widest uppercase mb-2">
+                  Address
+                </h4>
+                <address className="font-dmSans font-light text-[15px] text-smoke/90 not-italic leading-relaxed">
+                  Fiddle River Restaurant<br />
+                  620 Connaught Dr, Jasper National Park<br />
+                  Alberta, Canada
+                </address>
+              </div>
             </div>
+            
             <div className="flex items-center gap-4 group cursor-default">
-              <Train className="w-5 h-5 text-gold stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-1" />
-              <p className="font-dmSans font-light tracking-wide text-[15px] text-smoke/90">36km from Nine Arch Bridge, Ella</p>
+              <Phone className="w-5 h-5 text-gold stroke-[1.5] flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1" />
+              <a href="tel:+17808523032" className="font-dmSans font-light text-[15px] text-smoke/90 hover:text-gold transition-colors">
+                780-852-3032
+              </a>
             </div>
-            <div className="flex items-center gap-4 group cursor-default">
-              <Mountain className="w-5 h-5 text-gold stroke-[1.5] transition-transform duration-500 group-hover:-translate-y-1" />
-              <p className="font-dmSans font-light tracking-wide text-[15px] text-smoke/90">46km from Horton Plains National Park</p>
+            
+            <div className="flex items-start gap-4 group cursor-default">
+              <Clock className="w-5 h-5 text-gold stroke-[1.5] mt-1 flex-shrink-0 transition-transform duration-500 group-hover:-translate-y-1" />
+              <div>
+                <h4 className="font-jost text-[10px] text-gold tracking-widest uppercase mb-2">
+                  Hours
+                </h4>
+                <p className="font-dmSans font-light text-[15px] text-smoke/90">
+                  Open today<br />
+                  11:30 a.m. – 09:30 p.m.
+                </p>
+              </div>
             </div>
           </div>
 
-          <div className="mb-10">
-            <h4 className="font-jost text-[10px] text-gold tracking-widest uppercase mb-3">
-              Address
-            </h4>
-            <address className="font-dmSans font-light text-[15px] text-smoke/90 not-italic leading-[2] tracking-wide">
-              A'Lankaa Resorts & Spa<br />
-              1200m Summit Road<br />
-              Haldummulla, Badulla District<br />
-              Sri Lanka
-            </address>
-          </div>
-
-          <a href="https://maps.app.goo.gl/gaGG4TwbFk1GKapa9"
+          <a href="https://www.google.com/maps/place/620+Connaught+Dr,+Jasper,+AB"
             target="_blank"
             rel="noreferrer"
             className="inline-flex items-center justify-center font-jost text-[11px] uppercase tracking-[0.2em] text-gold border border-gold/40 px-8 py-4 hover:border-gold hover:bg-gold/5 transition-colors duration-500 group"

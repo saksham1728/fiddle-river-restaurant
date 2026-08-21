@@ -73,20 +73,18 @@ export const OriginStory = () => {
   return (
     <section
       ref={sectionRef}
-      className="bg-obsidian py-[100px] lg:py-[140px] px-8 lg:px-[80px]"
+      className="bg-gradient-to-b from-[#1a3d2e] via-[#15322a] to-[#0f2319] py-[100px] lg:py-[140px] px-8 lg:px-[80px]"
     >
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 lg:grid-cols-[55%_auto] gap-16 lg:gap-20 items-center">
 
         {/* left cont */}
         <div ref={leftContentRef} className="flex flex-col">
           <p className="font-jost text-[13px] text-gold tracking-[0.3em] uppercase mb-6">
-            HALDUMMULLA · SRI LANKA
+            ABOUT US
           </p>
 
           <h2 className="font-cormorant text-[clamp(36px,4vw,64px)] text-ivory font-light leading-[1.1] mb-10">
-            Born from a rock,<br />
-            built for the<br />
-            discerning traveller.
+            Fiddle River
           </h2>
 
           <div
@@ -96,13 +94,10 @@ export const OriginStory = () => {
 
           <div className="font-dmSans font-light text-[16px] text-smoke/90 leading-[2.2] tracking-wide space-y-8 max-w-[540px]">
             <p>
-              It began with a singular vision. Our founders, guided by an unwavering appreciation for the dramatic landscapes of Sri Lanka's hill country, sought out the most extraordinary canvas. They found it here—on a solid granite peak at precisely 1,200 meters above the sea.
+              "A good dining experience is an amalgamation of an inspired creative chef, attentive and friendly service and a very pleasant atmosphere", says owner Patrice Fortin.
             </p>
             <p>
-              Our philosophy at A'Lankaa is simple: nature is the ultimate luxury. The resort's architecture bows to the breathtaking 360-degree panoramas, where misty morning atmospheres seamlessly blend into the expansive, unhindered horizons.
-            </p>
-            <p>
-              Every detail is underscored by a profound commitment to warm Sri Lankan hospitality. Here, the boutique experience is meticulously tailored, ensuring that personalized service and serene luxury are woven into every moment of your stay.
+              Fiddle River restaurant started in 1993 with a real flair for fresh fish and seafood. Over the years, Wild Game, Alberta Angus Beef and fresh herbs & spices enhanced the menu. Today, the same food items that built Fiddle River's reputation are part of the menu. Our focus now is to keep buying fresh ingredients responsibly. Buying local, regional and closer to home is what we do!
             </p>
           </div>
         </div>
@@ -111,15 +106,15 @@ export const OriginStory = () => {
         <div ref={rightImagesRef} className="relative mt-12 lg:mt-0 pb-16 lg:pb-0 pr-8 lg:pr-0 group">
           <div className="img-container relative w-full aspect-[4/3] border-[1px] border-gold/15 flex-shrink-0 overflow-hidden">
             <img
-              src="/images/rock view 2.webp"
-              alt="A'Lankaa Resort Architecture"
+              src="/food-2.webp"
+              alt="Fiddle River Restaurant Food"
               className="w-full h-full object-cover scale-105 transition-transform duration-[3s] ease-out group-hover:scale-[1.1]"
             />
           </div>
           <div className="img-container absolute -bottom-12 -right-4 lg:-bottom-20 lg:-right-10 w-[60%] aspect-[3/4] border-[1px] border-gold/15 z-10 bg-obsidian overflow-hidden">
             <img
-              src="/images/rock view 1.webp"
-              alt="A'Lankaa Resort Interior Detail"
+              src="/images/about1.jpeg"
+              alt="Fiddle River Restaurant Dining"
               className="w-full h-full object-cover scale-105 transition-transform duration-[3s] ease-out group-hover:scale-[1.12]"
             />
           </div>
@@ -129,3 +124,4 @@ export const OriginStory = () => {
     </section>
   );
 };
+
