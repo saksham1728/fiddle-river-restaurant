@@ -52,7 +52,7 @@ const Part1Hero = () => {
       {/* back img */}
       <img
         ref={imageRef}
-        src="/images/view 6.webp"
+        src="/mountain.webp"
         alt="A'Lankaa Resorts Aerial View"
         className="absolute inset-0 w-full h-[120%] object-cover object-center -top-[10%]"
       />
@@ -86,7 +86,7 @@ const Part1Hero = () => {
         className="absolute top-0 left-0 p-[24px] lg:p-[56px]"
       >
         <p className="font-jost text-[10px] text-gold uppercase tracking-[0.5em] max-md:tracking-[0.3em]">
-          SRI LANKA · BADULLA DISTRICT · HALDUMMULLA
+          CANADA · ALBERTA · JASPER
         </p>
       </motion.div>
 
@@ -98,8 +98,8 @@ const Part1Hero = () => {
         viewport={{ once: true }}
         className="absolute top-0 right-0 p-[24px] lg:p-[56px] text-right"
       >
-        <p className="font-cormorant italic text-[18px] text-smoke opacity-60">6°N 80°E</p>
-        <p className="font-jost text-[11px] text-gold uppercase tracking-[0.3em] mt-1 hidden md:block">1,200m ASL</p>
+        <p className="font-cormorant italic text-[18px] text-smoke opacity-60">52°N 118°W</p>
+        <p className="font-jost text-[11px] text-gold uppercase tracking-[0.3em] mt-1 hidden md:block">SECOND FLOOR</p>
       </motion.div>
 
       {/* bottom center part */}
@@ -110,20 +110,20 @@ const Part1Hero = () => {
             THE DESTINATION
           </p>
           <div className="hero-headline-on-image font-cormorant text-[clamp(40px,5vw,72px)] text-ivory font-light leading-[0.95]">
-            <h2 ref={el => { headingRefs.current[0] = el; }} className="pb-1">Perched above the world,</h2>
-            <h2 ref={el => { headingRefs.current[1] = el; }} className="pb-1">hidden in the clouds.</h2>
+            <h2 ref={el => { headingRefs.current[0] = el; }} className="pb-1">Upstairs dining,</h2>
+            <h2 ref={el => { headingRefs.current[1] = el; }} className="pb-1">mountain views.</h2>
           </div>
           <p className="hero-subtext-on-image font-dmSans text-[18px] max-md:text-[14px] text-white/90 max-w-[520px] leading-[1.9] mt-5">
-            Nestled at 1,200 metres above sea level on ancient volcanic rock in Haldummulla, Badulla. A'Lankaa is one of Sri Lanka's most dramatically situated luxury resorts. Surrounded by misty mountains, tea-country roads, and the silence of clouds.
+            Located on the second floor at 620 Connaught Drive in Jasper, Alberta. Fiddle River Restaurant offers premier seafood and Rocky Mountain cuisine with scenic mountain views. A true culinary destination in the heart of the Canadian Rockies.
           </p>
 
           {/* stst */}
           <div className="flex gap-4 lg:gap-[48px] mt-8 overflow-hidden items-center bg-black/20 backdrop-blur-sm px-6 py-3 rounded-lg">
-            <StatsCounter number="1,200m" label="Elevation" />
+            <StatsCounter number="11:30 AM" label="Lunch Opens" />
             <div className="w-px h-[40px] bg-mist max-md:mx-2" />
-            <StatsCounter number="32km" label="from Badulla" />
+            <StatsCounter number="5:00 PM" label="Dinner Starts" />
             <div className="w-px h-[40px] bg-mist max-md:mx-2" />
-            <StatsCounter number="5 hrs" label="from Colombo" />
+            <StatsCounter number="9:00 PM" label="Closes" />
           </div>
         </div>
 
@@ -142,24 +142,24 @@ const Part1Hero = () => {
 
           <div className="space-y-6 max-md:space-y-4">
             <div className="flex gap-4">
-              <Car className="w-[18px] h-[18px] text-gold shrink-0 mt-1" />
+              <MapPin className="w-[18px] h-[18px] text-gold shrink-0 mt-1" />
               <div>
-                <p className="card-heading-on-image font-dmSans font-medium text-[18px] text-cream">Road from Colombo</p>
-                <p className="card-text-on-image font-dmSans font-light text-[14px] text-smoke mt-1">5 hrs via A4 highway</p>
+                <p className="card-heading-on-image font-dmSans font-medium text-[18px] text-cream">620 Connaught Drive</p>
+                <p className="card-text-on-image font-dmSans font-light text-[14px] text-smoke mt-1">Upstairs, Second Floor</p>
               </div>
             </div>
             <div className="flex gap-4">
-              <Train className="w-[18px] h-[18px] text-gold shrink-0 mt-1" />
+              <Car className="w-[18px] h-[18px] text-gold shrink-0 mt-1" />
               <div>
-                <p className="card-heading-on-image font-dmSans font-medium text-[18px] text-cream">Train to Badulla</p>
-                <p className="card-text-on-image font-dmSans font-light text-[14px] text-smoke mt-1">Then 32km drive to resort</p>
+                <p className="card-heading-on-image font-dmSans font-medium text-[18px] text-cream">Call for Reservations</p>
+                <p className="card-text-on-image font-dmSans font-light text-[14px] text-smoke mt-1">+1 780-852-3032</p>
               </div>
             </div>
           </div>
 
           <div className="h-px bg-mist w-full my-5" />
 
-          <a href="https://maps.app.goo.gl/Ne2z9PPA18kFDnVt5" target="_blank" rel="noreferrer" className="group flex items-center gap-2 font-jost text-[14px] text-gold uppercase hover:text-gold-light transition-colors duration-300">
+          <a href="https://maps.app.goo.gl/FiddleRiverJasper" target="_blank" rel="noreferrer" className="group flex items-center gap-2 font-jost text-[14px] text-gold uppercase hover:text-gold-light transition-colors duration-300">
             Get Directions <ArrowUpRight className="w-[14px] h-[14px]" />
           </a>
         </motion.div>

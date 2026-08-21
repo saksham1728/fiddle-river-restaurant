@@ -11,6 +11,7 @@ import { LocationShowcase } from '../components/home/LocationShowcase';
 import MistCanvas from '../components/MistCanvas';
 import ReviewsSection from '../components/home/ReviewsSection';
 import MountainIntro from '../components/home/MountainIntro';
+import SeafoodGallery from '../components/home/SeafoodGallery';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -125,7 +126,7 @@ export const Home = () => {
       {/* feat sec */}
       <section
         ref={sectionRef}
-        className="py-24 px-6 md:px-20 bg-void max-w-[1920px] mx-auto min-h-screen flex items-center relative overflow-hidden group"
+        className="py-16 px-6 md:px-20 bg-void max-w-[1920px] mx-auto min-h-screen flex items-center relative overflow-hidden group"
         onMouseMove={handleMouseMove}
       >
 
@@ -146,6 +147,8 @@ export const Home = () => {
           </button>
         </div>
       </section>
+
+      <SeafoodGallery />
 
       <LocationShowcase />
 
