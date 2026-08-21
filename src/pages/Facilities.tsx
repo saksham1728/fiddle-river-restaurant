@@ -16,7 +16,7 @@ gsap.registerPlugin(ScrollTrigger);
 const Facilities = () => {
   useEffect(() => {
     AOS.init({ once: true });
-    document.title = "Facilities & Amenities | A'Lankaa Resorts & Spa";
+    document.title = "Facilities | Fiddle River Restaurant";
 
 
     const facilityImages = document.querySelectorAll('.facility-image-reveal');

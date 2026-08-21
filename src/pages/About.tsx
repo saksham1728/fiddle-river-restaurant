@@ -1,10 +1,15 @@
 import { motion } from 'framer-motion';
+import { useEffect } from 'react';
 import { OriginStory } from '../components/about/OriginStory';
 import { Philosophy } from '../components/about/Philosophy';
 import { Location } from '../components/about/Location';
 import MountainIntro from '../components/home/MountainIntro';
 
 export const About = () => {
+  useEffect(() => {
+    document.title = "About | Fiddle River Restaurant";
+  }, []);
+
   return (
     <motion.main
       initial={{ opacity: 0 }}

@@ -27,7 +27,7 @@ const Rooms = () => {
 
   useEffect(() => {
     AOS.init({ once: true });
-    document.title = "Rooms & Suites | A'Lankaa Resorts & Spa";
+    document.title = "Rooms | Fiddle River Restaurant";
 
     const suiteImages = document.querySelectorAll('.suite-image-reveal');
     suiteImages.forEach((img) => {

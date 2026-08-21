@@ -30,6 +30,7 @@ export const Home = () => {
 
   useEffect(() => {
     document.body.classList.add('is-front');
+    document.title = "Fiddle River Restaurant - Jasper's Premier Seafood Restaurant";
     return () => document.body.classList.remove('is-front');
   }, []);
 
