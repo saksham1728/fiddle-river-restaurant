@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Volume2, VolumeX } from 'lucide-react';
+import { MusicProvider } from '../context/MusicContext';
 import '../styles/BackgroundMusic.css';
 
 // ─── Constants ────────────────────────────────────────────────
@@ -157,77 +158,79 @@ const BackgroundMusic: React.FC = () => {
 
   // ── Render ───────────────────────────────────────────────────
   return (
-    <motion.div
-      className="music-wrapper"
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
-    >
-      {/* Pulse ring — only when playing */}
-      {isReady && !isMuted && (
-        <motion.span
-          className="music-pulse"
-          animate={{
-            scale: [1, 1.6, 1],
-            opacity: [0.4, 0, 0.4],
-          }}
-          transition={{
-            duration: 2,
-            repeat: Infinity,
-            ease: 'easeInOut',
-          }}
-        />
-      )}
-
-      {/* Main button */}
-      <motion.button
-        id="music-toggle-btn"
-        className="music-btn"
-        aria-label={isMuted
-          ? 'Unmute ambient music'
-          : 'Mute ambient music'
-        }
-        onClick={handleToggle}
-        whileHover={{ scale: 1.08 }}
-        whileTap={{ scale: 0.94 }}
+    <MusicProvider value={{ isMuted, toggleMute: handleToggle, isReady }}>
+      <motion.div
+        className="music-wrapper"
+        initial={{ opacity: 0, y: 20 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ delay: 1.5, duration: 0.6, ease: 'easeOut' }}
       >
-        {/* Icon swap */}
-        <AnimatePresence mode="wait">
-          {isMuted ? (
-            <motion.span
-              key="muted"
-              initial={{ opacity: 0, rotate: -30, scale: 0.7 }}
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, rotate: 30, scale: 0.7 }}
-              transition={{ duration: 0.18 }}
-              className="music-icon"
-            >
-              <VolumeX size={20} />
-            </motion.span>
-          ) : (
-            <motion.span
-              key="playing"
-              initial={{ opacity: 0, rotate: 30, scale: 0.7 }}
-              animate={{ opacity: 1, rotate: 0, scale: 1 }}
-              exit={{ opacity: 0, rotate: -30, scale: 0.7 }}
-              transition={{ duration: 0.18 }}
-              className="music-icon"
-            >
-              <Volume2 size={20} />
-            </motion.span>
-          )}
-        </AnimatePresence>
-
-        {/* Sound wave bars — only when playing */}
+        {/* Pulse ring — only when playing */}
         {isReady && !isMuted && (
-          <span className="music-bars" aria-hidden="true">
-            <span className="music-bar bar-1" />
-            <span className="music-bar bar-2" />
-            <span className="music-bar bar-3" />
-          </span>
+          <motion.span
+            className="music-pulse"
+            animate={{
+              scale: [1, 1.6, 1],
+              opacity: [0.4, 0, 0.4],
+            }}
+            transition={{
+              duration: 2,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+          />
         )}
-      </motion.button>
-    </motion.div>
+
+        {/* Main button */}
+        <motion.button
+          id="music-toggle-btn"
+          className="music-btn"
+          aria-label={isMuted
+            ? 'Unmute ambient music'
+            : 'Mute ambient music'
+          }
+          onClick={handleToggle}
+          whileHover={{ scale: 1.08 }}
+          whileTap={{ scale: 0.94 }}
+        >
+          {/* Icon swap */}
+          <AnimatePresence mode="wait">
+            {isMuted ? (
+              <motion.span
+                key="muted"
+                initial={{ opacity: 0, rotate: -30, scale: 0.7 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: 30, scale: 0.7 }}
+                transition={{ duration: 0.18 }}
+                className="music-icon"
+              >
+                <VolumeX size={20} />
+              </motion.span>
+            ) : (
+              <motion.span
+                key="playing"
+                initial={{ opacity: 0, rotate: 30, scale: 0.7 }}
+                animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                exit={{ opacity: 0, rotate: -30, scale: 0.7 }}
+                transition={{ duration: 0.18 }}
+                className="music-icon"
+              >
+                <Volume2 size={20} />
+              </motion.span>
+            )}
+          </AnimatePresence>
+
+          {/* Sound wave bars — only when playing */}
+          {isReady && !isMuted && (
+            <span className="music-bars" aria-hidden="true">
+              <span className="music-bar bar-1" />
+              <span className="music-bar bar-2" />
+              <span className="music-bar bar-3" />
+            </span>
+          )}
+        </motion.button>
+      </motion.div>
+    </MusicProvider>
   );
 };
 

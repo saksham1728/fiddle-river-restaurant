@@ -1,17 +1,41 @@
 import { useEffect, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
-import { Menu, X } from 'lucide-react';
+import { Home, Info, Bed, Sparkles, Image, Mail, Volume2, VolumeX } from 'lucide-react';
 import { AnimatePresence, motion } from 'framer-motion';
-import ThemeToggle from './ThemeToggle';
-import { useTheme } from '../context/ThemeContext';
 import BeSearchForm from "./beForms/BeSearchForm.tsx";
 
 export const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isMusicMuted, setIsMusicMuted] = useState(false);
   const location = useLocation();
-  const { isDark } = useTheme();
-  const isPlacesPage = location.pathname === "/places";
+  const isDark = true; // Always dark theme
+  
+  // Music control - directly interact with the music button and track state
+  const handleMusicToggle = () => {
+    const musicBtn = document.getElementById('music-toggle-btn');
+    if (musicBtn) {
+      musicBtn.click();
+      // Toggle local state
+      setIsMusicMuted(!isMusicMuted);
+    }
+  };
+
+  // Sync with actual music state on mount
+  useEffect(() => {
+    const checkMusicState = () => {
+      const musicBtn = document.getElementById('music-toggle-btn');
+      if (musicBtn) {
+        // Check if VolumeX icon exists (muted state)
+        const isMuted = musicBtn.querySelector('svg')?.getAttribute('data-lucide') === 'volume-x';
+        setIsMusicMuted(isMuted);
+      }
+    };
+    
+    // Check initially after a delay
+    const timer = setTimeout(checkMusicState, 2000);
+    
+    return () => clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -21,17 +45,12 @@ export const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  useEffect(() => {
-    setIsMobileMenuOpen(false);
-  }, [location.pathname]);
-
   const navLinks = [
-    { name: 'Home',       path: '/'           },
-    { name: 'About',      path: '/about'      },
-    { name: 'Rooms',      path: '/rooms'      },
-    { name: 'Facilities', path: '/facilities' },
-    { name: 'Gallery',    path: '/gallery'    },
-    { name: 'Contact',    path: '/contact'    },
+    { name: 'Home',     path: '/',         icon: Home     },
+    { name: 'Menu',     path: '/menu',     icon: Sparkles },
+    { name: 'About',    path: '/about',    icon: Info     },
+    { name: 'Gallery',  path: '/gallery',  icon: Image    },
+    { name: 'Contact',  path: '/contact',  icon: Mail     },
   ];
 
   // ── Derived states ──────────────────────────────────────────
@@ -54,6 +73,7 @@ export const Navbar = () => {
 
   return (
     <>
+      {/* Desktop & Top Mobile Nav */}
       <nav
         className={`fixed top-0 left-0 w-full z-[1000] px-6 md:px-12 transition-all duration-400 ease-in-out ${
           isSolid ? 'py-4' : 'py-4 md:py-6'
@@ -113,11 +133,8 @@ export const Navbar = () => {
               ))}
             </ul>
 
-            <div style={{ display: 'flex', alignItems: 'center', gap: '20px' }}>
-              <ThemeToggle />
-
-              {/* Book Now button */}
-              <Link
+            {/* Book Now button */}
+            <Link
                 to="/booking"
                 className="hoverable hover:scale-105"
                 style={{
@@ -147,107 +164,91 @@ export const Navbar = () => {
                     : '#9A7A3A';
                 }}
               >
-                Book Now
+                Reserve a Table
               </Link>
-            </div>
           </div>
 
-          {/* Mobile toggle */}
-          <button
-            className="lg:hidden text-gold p-2 hoverable"
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-          >
-            {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
-          </button>
+          {/* Mobile: Music toggle only */}
+          <div className="lg:hidden">
+            <button
+              onClick={handleMusicToggle}
+              className="relative w-10 h-10 flex items-center justify-center rounded-full border border-gold/30 hover:border-gold transition-colors duration-300 bg-transparent hover:bg-gold/10"
+              aria-label="Toggle music"
+            >
+              {isMusicMuted ? (
+                <VolumeX className="w-5 h-5 text-gold/50" strokeWidth={1.5} />
+              ) : (
+                <Volume2 className="w-5 h-5 text-gold" strokeWidth={1.5} />
+              )}
+            </button>
+          </div>
         </div>
       </nav>
 
-      {/* Mobile menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="fixed inset-0 z-[999] flex flex-col items-center justify-start pt-[120px] pb-[40px] px-6 pointer-events-auto overflow-y-auto"
-            style={{
-              backgroundColor: isDark
-                ? 'var(--clr-void)'
-                : 'rgba(255,255,255,0.98)', // ← light mode: white overlay
-              backdropFilter: !isDark ? 'blur(20px)' : 'none',
-            }}
-          >
-            <div className="absolute inset-0 opacity-5 bg-center bg-cover pointer-events-none fixed"
-              style={{
-                backgroundImage: isDark
-                  ? 'linear-gradient(to bottom, #1E1E1E, #0E0E0E)'
-                  : 'linear-gradient(to bottom, #FAF7F2, #F0EAD6)', // ← light gradient
-              }}
-            />
-
-            <ul className="flex flex-col items-center gap-6 z-10 w-full max-w-[400px]">
-              {navLinks.map((link, i) => (
-                <motion.li
-                  key={link.name}
-                  initial={{ opacity: 0, x: 50 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: 0.1 + i * 0.05, duration: 0.4 }}
-                >
-                  <Link
-                    to={link.path}
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className={`font-cormorant text-[40px] md:text-[48px] hover:text-gold transition-colors duration-300 hoverable ${
-                      isDark ? 'text-ivory' : 'text-[#2D3748]' // ← light: charcoal
-                    }`}
-                  >
-                    {link.name}
-                  </Link>
-                </motion.li>
-              ))}
-
-              <motion.li
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: 0.4, duration: 0.4 }}
-                className="mt-8 w-full flex flex-col items-center"
+      {/* Mobile Bottom Pill Navigation */}
+      <nav className="lg:hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-[1000] px-4">
+        <motion.div
+          initial={{ y: 100, opacity: 0 }}
+          animate={{ y: 0, opacity: 1 }}
+          transition={{ delay: 0.5, duration: 0.6, ease: 'easeOut' }}
+          className="flex items-center gap-1 px-4 py-3 rounded-full shadow-2xl"
+          style={{
+            backgroundColor: isDark 
+              ? 'rgba(15, 35, 25, 0.95)' 
+              : 'rgba(20, 50, 35, 0.92)',
+            backdropFilter: 'blur(20px) saturate(1.8)',
+            border: `1px solid ${isDark ? 'rgba(50, 90, 70, 0.4)' : 'rgba(60, 100, 80, 0.5)'}`,
+          }}
+        >
+          {navLinks.map((link) => {
+            const Icon = link.icon;
+            const isActive = location.pathname === link.path;
+            
+            return (
+              <Link
+                key={link.name}
+                to={link.path}
+                className="relative flex flex-col items-center justify-center px-3 py-2 transition-all duration-300 group hoverable"
               >
-                <Link
-                  to="/booking"
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className="px-12 py-4 font-jost text-[14px] uppercase tracking-[0.2em] transition-colors duration-300 hoverable inline-block text-center w-full max-w-[240px]"
-                  style={{
-                    border: `1px solid ${isDark ? 'var(--clr-gold)' : '#9A7A3A'}`,
-                    color: isDark ? 'var(--clr-gold)' : '#9A7A3A',
-                  }}
+                <Icon
+                  size={20}
+                  strokeWidth={1.5}
+                  className={`transition-colors duration-300 ${
+                    isActive
+                      ? 'text-gold'
+                      : isDark
+                        ? 'text-cream/70 group-hover:text-gold'
+                        : 'text-[#6B7280] group-hover:text-gold'
+                  }`}
+                />
+                <span
+                  className={`font-jost text-[8px] uppercase tracking-wider mt-1 transition-colors duration-300 ${
+                    isActive
+                      ? 'text-gold'
+                      : isDark
+                        ? 'text-cream/50 group-hover:text-gold'
+                        : 'text-[#9A9590] group-hover:text-gold'
+                  }`}
                 >
-                  Book Now
-                </Link>
-
-                <div style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'space-between',
-                  padding: '16px 0',
-                  borderTop: `1px solid ${isDark ? 'var(--clr-mist)' : 'rgba(184,150,90,0.2)'}`,
-                  marginTop: '32px',
-                  width: '100%',
-                }}>
-                  <span style={{
-                    fontFamily: 'Jost',
-                    fontSize: '11px',
-                    color: isDark ? 'var(--clr-fog)' : '#9A9590',
-                    textTransform: 'uppercase',
-                    letterSpacing: '0.3em',
-                  }}>
-                    {isDark ? 'Dark Mode' : 'Light Mode'}
-                  </span>
-                  <ThemeToggle />
-                </div>
-              </motion.li>
-            </ul>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                  {link.name}
+                </span>
+                {isActive && (
+                  <motion.div
+                    layoutId="activeTab"
+                    className="absolute inset-0 rounded-lg -z-10"
+                    style={{
+                      backgroundColor: isDark
+                        ? 'rgba(60, 120, 90, 0.2)'
+                        : 'rgba(70, 140, 100, 0.25)',
+                    }}
+                    transition={{ type: 'spring', bounce: 0.2, duration: 0.6 }}
+                  />
+                )}
+              </Link>
+            );
+          })}
+        </motion.div>
+      </nav>
     </>
   );
 };

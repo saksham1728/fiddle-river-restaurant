@@ -97,7 +97,7 @@ export const LoadingScreen = () => {
               className="w-full h-full object-contain"
             />
           </div>
-          <h1 ref={textRef} className="font-cormorant text-[48px] text-ivory tracking-[0.3em] uppercase opacity-0 translate-y-5">
+          <h1 ref={textRef} className="font-cormorant text-[32px] sm:text-[48px] text-ivory tracking-[0.15em] sm:tracking-[0.3em] uppercase opacity-0 translate-y-5 text-center px-4">
             Fiddle River
           </h1>
         </div>
@@ -106,7 +106,7 @@ export const LoadingScreen = () => {
 
         <p
           ref={subtitleRef}
-          className="font-jost text-[11px] text-gold tracking-[0.5em] uppercase opacity-0"
+          className="font-jost text-[10px] sm:text-[11px] text-gold tracking-[0.3em] sm:tracking-[0.5em] uppercase opacity-0 text-center"
         >
           Restaurant & Bar
         </p>

@@ -93,20 +93,23 @@ export const Home = () => {
         <div className="absolute inset-0 z-[2] bg-[var(--grad-hero)]" />
         <div className="absolute inset-0 z-[2] bg-black/35" />
 
-        <div className="relative z-[3] max-w-[1920px] mx-auto px-6 text-center mt-20">
+        <div className="relative z-[3] max-w-[1920px] mx-auto px-6 text-center mt-8 md:mt-12">
           <h2 className="font-jost text-[14px] text-gold tracking-[0.4em] uppercase mb-6" data-aos="fade-down" data-aos-delay="2000">
-            Welcome to the Edge of the World
+            Jasper's Premier Seafood Restaurant
           </h2>
           <h1
             ref={heroTextRef}
-            className="hero-headline-on-image font-cormorant text-[max(48px,10vw)] leading-none tracking-tight mb-8 font-normal opacity-90 drop-shadow-xl"
+            className="hero-headline-on-image font-cormorant text-[max(40px,8vw)] leading-none tracking-tight mb-8 font-normal opacity-90 drop-shadow-xl"
           >
-            <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Quiet</span> <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Luxury.</span><br />
-            <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Elevated.</span>
+            <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Taste</span> <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Jasper,</span><br />
+            <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">From</span> <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">River</span> <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">to</span> <span className="inline-block bg-gradient-to-b from-white via-[#FFF9EE] to-[#D4AF7A] text-transparent bg-clip-text select-none pb-2">Rockies</span>
           </h1>
+          <p className="font-dmSans text-[17px] md:text-[20px] text-ivory/90 max-w-[700px] mx-auto leading-relaxed mt-6" data-aos="fade-up" data-aos-delay="2200">
+            Fresh seafood, Canadian flavours & warm mountain hospitality
+          </p>
         </div>
 
-        <div className="absolute bottom-8 left-1/2 z-[3] -translate-x-1/2 flex justify-center w-full max-w-[200px]">
+        <div className="absolute bottom-0 left-1/2 z-[3] -translate-x-1/2 flex justify-center w-full max-w-[200px]">
           <button
             onClick={scrollToNext}
             className="flex flex-col items-center gap-3 group cursor-pointer hover:scale-105 transition-transform duration-500"
