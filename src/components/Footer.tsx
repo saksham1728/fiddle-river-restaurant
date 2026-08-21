@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { FaFacebook, FaInstagram, FaPinterest, FaTiktok, FaTripadvisor } from 'react-icons/fa';
+import { FaFacebook, FaInstagram, FaTripadvisor } from 'react-icons/fa';
 import { MapPin, Phone, Mail, Clock } from 'lucide-react';
 
 export const Footer = () => {
@@ -17,22 +17,19 @@ export const Footer = () => {
           {/* col 1 */}
           <div className="lg:col-span-1 pr-0 md:pr-12">
             <div className="flex items-center gap-3 mb-6">
-              <img src="/logo.png" alt="A'Lankaa Logo" className="w-16 h-auto" />
               <div className="flex flex-col">
-                <h2 className="font-cormorant text-[32px] text-gold mb-1 leading-none">A'LANKAA</h2>
-                <p className="font-jost text-[9px] text-fog uppercase tracking-widest">Resorts & Spa</p>
+                <h2 className="font-cormorant text-[32px] text-gold mb-1 leading-none">FIDDLE RIVER</h2>
+                <p className="font-jost text-[9px] text-fog uppercase tracking-widest">Restaurant & Bar</p>
               </div>
             </div>
             <div className="h-[1px] w-10 bg-gold mb-6" />
             <p className="font-cormorant italic text-[18px] text-smoke leading-relaxed mb-8">
-              "Where the clouds kiss the mountains, and luxury finds its home."
+              "Where flavors meet the Rocky Mountains, and every meal tells a story."
             </p>
             <div className="flex items-center gap-4">
-              <a href="https://www.facebook.com/ALankaaResortsandSpa/" className="text-fog hover:text-gold transition-colors hoverable socials"><FaFacebook size={24} /></a>
-              <a href="https://www.instagram.com/alankaa_resorts" className="text-fog hover:text-gold transition-colors hoverable socials"><FaInstagram size={24} /></a>
-              <a href="https://www.tiktok.com/@alankaaresorts" className="text-fog hover:text-gold transition-colors hoverable socials"><FaTiktok size={24} /></a>
-              <a href="https://www.pinterest.com/alankaa_resorts/" className="text-fog hover:text-gold transition-colors hoverable socials"><FaPinterest size={24} /></a>
-              <a href="https://www.tripadvisor.com/Hotel_Review-g27110123-d18397208-Reviews-A_lankaa_Resorts-Watagamuwa_Uva_Province.html" className="text-fog hover:text-gold transition-colors hoverable socials"><FaTripadvisor size={24} /></a>
+              <a href="https://www.facebook.com/FiddleRiverJasper" target="_blank" rel="noopener noreferrer" className="text-fog hover:text-gold transition-colors hoverable socials"><FaFacebook size={24} /></a>
+              <a href="https://www.instagram.com/fiddleriverjasper/?hl=en" target="_blank" rel="noopener noreferrer" className="text-fog hover:text-gold transition-colors hoverable socials"><FaInstagram size={24} /></a>
+              <a href="https://www.tripadvisor.in/Restaurant_Review-g154918-d759250-Reviews-Fiddle_River_Restaurant-Jasper_Jasper_National_Park_Alberta.html" target="_blank" rel="noopener noreferrer" className="text-fog hover:text-gold transition-colors hoverable socials"><FaTripadvisor size={24} /></a>
             </div>
           </div>
 
@@ -43,11 +40,10 @@ export const Footer = () => {
               {[
                 { label: 'Home', path: '/' },
                 { label: 'About Us', path: '/about' },
-                { label: 'Rooms', path: '/rooms' },
-                { label: 'Facilities', path: '/facilities' },
+                { label: 'Menu', path: '/menu' },
                 { label: 'Gallery', path: '/gallery' },
                 { label: 'Contact', path: '/contact' },
-                { label: 'Book Now', path: '/booking' },
+                { label: 'Reserve Now', path: '/booking' },
               ].map(({ label, path }) => (
                 <li key={label}>
                   <Link
@@ -67,22 +63,21 @@ export const Footer = () => {
             <ul className="flex flex-col gap-5">
               <li className="font-dmSans text-[14px] text-smoke leading-relaxed flex items-start gap-2">
                 <MapPin className="text-gold mt-1 w-4 h-4 shrink-0" />
-                <span>Wattagamuwa, Haldummulla,<br />Badulla 90180, Sri Lanka</span>
+                <span>620, 620B Connaught Dr UPSTAIRS,<br />Jasper, AB T0E 0A8, Canada</span>
               </li>
               <li className="font-dmSans text-[14px] text-smoke flex items-start gap-2">
                 <Phone className="text-gold w-4 h-4 shrink-0 mt-1" />
                 <div className="flex flex-col gap-1">
-                  <span>+94 70 797 5975</span>
-                  <span>+94 57 205 1664</span>
+                  <span>+1 780-852-3032</span>
                 </div>
               </li>
               <li className="font-dmSans text-[14px] text-smoke flex items-center gap-2">
                 <Mail className="text-gold w-4 h-4 shrink-0" />
-                info@alankaaresorts.com
+                info@fiddleriver.ca
               </li>
               <li className="font-dmSans text-[14px] text-smoke flex items-center gap-2 mt-2">
                 <Clock className="text-gold w-4 h-4 shrink-0" />
-                Check-in 12PM | Out 10AM
+                Open Daily 11:30 AM - 9:30 PM
               </li>
             </ul>
           </div>
@@ -90,7 +85,7 @@ export const Footer = () => {
           {/* col 4 */}
           <div className="flex flex-col socials">
             <h3 className="font-jost text-[10px] text-gold uppercase tracking-[0.2em] mb-2">Stay Connected</h3>
-            <p className="font-dmSans text-[14px] text-smoke mb-6">Exclusive offers and resort stories.</p>
+            <p className="font-dmSans text-[14px] text-smoke mb-6">Exclusive offers and culinary stories.</p>
             <form className="flex flex-col gap-4" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
@@ -111,7 +106,7 @@ export const Footer = () => {
         {/* lower foot */}
         <div className="border-t border-mist px-6 md:px-20 py-6 flex flex-col md:flex-row justify-between items-center gap-4">
           <p className="font-dmSans text-[14px] text-fog">
-            © 2025 A'Lankaa Resorts & Spa. All rights reserved. | <a href="https://sysflicx.lk/" target="_blank" rel="noopener noreferrer" className="hover:text-gold transition-colors hoverable">Develop by Sysflicx</a>
+            © 2025 Fiddle River Restaurant & Bar. All rights reserved.
           </p>
           <div className="flex items-center gap-4 font-dmSans text-[14px] text-fog">
             <Link to="/privacy" className="hover:text-gold transition-colors hoverable">Privacy Policy</Link>
