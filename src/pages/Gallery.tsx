@@ -4,7 +4,6 @@ import 'aos/dist/aos.css';
 import GalleryHero from '../components/gallery/GalleryHero';
 import GalleryFilter from '../components/gallery/GalleryFilter';
 import GalleryMasonry from '../components/gallery/GalleryMasonry';
-import GalleryVideos from '../components/gallery/GalleryVideos';
 import GalleryDrone from '../components/gallery/GalleryDrone';
 import GalleryInstagram from '../components/gallery/GalleryInstagram';
 import { CATEGORIES, MOCK_IMAGES } from '../data/galleryData';
@@ -20,7 +19,7 @@ const Gallery = () => {
   );
 
   useEffect(() => {
-    document.title = "Gallery | A'Lankaa Resorts & Spa";
+    document.title = "Gallery | Fiddle River Restaurant";
     window.scrollTo(0, 0);
     AOS.init({ once: true });
     AOS.refresh();
@@ -36,7 +35,6 @@ const Gallery = () => {
         totalImages={filteredImages.length}
       />
       <GalleryMasonry images={filteredImages} />
-      <GalleryVideos />
       <GalleryDrone />
       <GalleryInstagram />
     </main>

@@ -3,12 +3,12 @@ import { FaInstagram } from 'react-icons/fa';
 import { motion } from 'framer-motion';
 
 const instaPosts = [
-  { id: 1, src: "images/post4.webp", likes: "1.2k" },
-  { id: 2, src: "images/post5.webp", likes: "842" },
-  { id: 3, src: "images/post6.webp", likes: "2.1k" },
-  { id: 4, src: "images/post2.webp", likes: "956" },
-  { id: 5, src: "images/post3.webp", likes: "3.4k" },
-  { id: 6, src: "images/post1.webp", likes: "1.8k" },
+  { id: 1, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Crisp_toast__rich_wild_mushrooms__a_hint_of_smoked_garlic__a_2025-06-11_DKuyOZhhLop_365207723964817258.jpg", likes: "1.2k" },
+  { id: 2, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Craving_the_flavour_of_wild_Canadian_game_These_meatballs_ar_2020-03-09_B9hODjdFJrU_226115030479513877.jpg", likes: "842" },
+  { id: 3, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Craving_our_Earl_Grey_Smoked_Candied_Salmon_We_re_currently_2023-03-18_Cp53tDgvx9l_3060722410480148325.jpg", likes: "2.1k" },
+  { id: 4, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312955/fiddleriverjasper_Did_someone_say_seafood_Our_chefs_at_Fiddle_River_Restaurant_2023-04-08_CqwIE2DBmKU_307599406277685314_3.jpg", likes: "956" },
+  { id: 5, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312954/fiddleriverjasper_Crispy_wings._Bold_flavours._Salt___Pepper___Honey_Garlic___2026-05-15_DYVXccfgCT2_3897124162367399158.jpg", likes: "3.4k" },
+  { id: 6, src: "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312956/fiddleriverjasper_Did_you_know_every_dessert_at_Fiddle_River_Restaurant_is_mad_2026-07-15_Day3K2NliQ3_394145526186548536.jpg", likes: "1.8k" },
 ];
 
 const GalleryInstagram = () => {
@@ -18,8 +18,8 @@ const GalleryInstagram = () => {
 
         <div className="text-center mb-16" data-aos="fade-up">
           <h2 className="font-cormorant text-3xl md:text-4xl text-ivory mb-2">Follow Our Journey</h2>
-          <a href="https://www.instagram.com/alankaa_resorts?igsh=MW51N3o2ZHF3Ymk5dw==" target="_blank" rel="noreferrer" className="block font-dmSans text-[14px] text-gold hover:text-mist transition-colors duration-300">
-            @alankaa_resorts
+          <a href="https://www.instagram.com/fiddleriverjasper" target="_blank" rel="noreferrer" className="block font-dmSans text-[14px] text-gold hover:text-mist transition-colors duration-300">
+            @fiddleriverjasper
           </a>
         </div>
 
@@ -27,7 +27,7 @@ const GalleryInstagram = () => {
           {instaPosts.map((post, i) => (
             <motion.a
               key={post.id}
-              href="https://www.instagram.com/alankaa_resorts?igsh=MW51N3o2ZHF3Ymk5dw=="
+              href="https://www.instagram.com/fiddleriverjasper"
               target="_blank"
               rel="noreferrer"
               initial={{ opacity: 0, scale: 0.95 }}

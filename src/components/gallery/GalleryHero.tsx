@@ -1,11 +1,11 @@
 import { motion } from 'framer-motion';
 
 const images = [
-  "/images/pool view.webp", // 0
-  "/images/sky view.webp", // 1
-  "/images/infinity-pool-family.webp", // 2
-  "/images/rock 2.webp", // 3
-  "/images/kandiyan 2.webp"  // 4
+  "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Crispy_calamari_with_a_fresh_twist._Spiced_squid_rings__lemo_2026-05-30_DY-CofaAWcu_390857310519855697.jpg",
+  "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Crispy_Calamari_Spiced_squid_rings_with_lemon_twist___red_on_2023-03-13_CptB-wNrqpY_305710843247766178.jpg",
+  "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Crisp__warm_toasted_baguette_topped_with_a_medley_of_wild_mu_2025-04-03_DH_ainNCKfl_360271495468578608.jpg",
+  "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312953/fiddleriverjasper_Creamy__comforting__and_full_of_coastal_flavour___Our_Seaf_2026-03-24_DWPn9HPkpfe_385947912915927651.jpg",
+  "https://res.cloudinary.com/jhprfvpg/image/upload/v1787312954/fiddleriverjasper_Crispy_cod__crunchy_fries__and_a_slaw_with_a_twist___Enjoy_o_2026-06-29_DaLP9lZjFvx_393030530255371364.jpg"
 ];
 
 const container: any = {
@@ -88,7 +88,7 @@ const GalleryHero = () => {
           transition={{ duration: 0.8, delay: 0.7, ease: "easeOut" }}
           className="font-dmSans text-[16px] text-cream/90 hero-subtext-on-image"
         >
-          Every image, a window into A'Lankaa.
+          Every image, a story of flavors and moments.
         </motion.p>
       </div>
     </section>
