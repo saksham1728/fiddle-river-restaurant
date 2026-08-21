@@ -4,14 +4,13 @@ import HeroSlider from '../components/home/HeroSlider';
 import { gsap } from 'gsap';
 import { motion } from 'framer-motion';
 import { ChevronDown } from 'lucide-react';
-import PhotographyFeature from '../components/home/PhotographyFeature';
 import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { LocationShowcase } from '../components/home/LocationShowcase';
 import MistCanvas from '../components/MistCanvas';
 import ReviewsSection from '../components/home/ReviewsSection';
-import MountainIntro from '../components/home/MountainIntro';
 import SeafoodGallery from '../components/home/SeafoodGallery';
+import FoodCarousel from '../components/home/FoodCarousel';
 
 export const Home = () => {
   const navigate = useNavigate();
@@ -123,9 +122,6 @@ export const Home = () => {
         </div>
       </section>
       
-      {/* Mountain Intro with Clouds Effect */}
-      <MountainIntro />
-
       {/* feat sec */}
       <section
         ref={sectionRef}
@@ -186,7 +182,7 @@ export const Home = () => {
             </p>
 
             <button 
-              onClick={() => navigate('/booking')}
+              onClick={() => navigate('/contact')}
               className="w-full bg-gold hover:bg-gold/90 text-[#0f2319] font-jost text-[12px] uppercase tracking-widest py-4 px-8 transition-all duration-300 hover:scale-[1.02] font-semibold"
             >
               Reserve Your Table
@@ -202,10 +198,7 @@ export const Home = () => {
 
       <ReviewsSection />
 
-      <div className="h-[20vh] bg-void" />
-
-      {/* photography sec */}
-      <PhotographyFeature />
+      <FoodCarousel />
 
     </motion.main>
   );

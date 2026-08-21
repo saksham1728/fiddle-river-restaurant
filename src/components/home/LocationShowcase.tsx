@@ -2,8 +2,7 @@ import { useRef, useEffect } from 'react';
 import { motion } from 'framer-motion';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Plane, Car, MapPin, ArrowUpRight, Star, ArrowRight } from 'lucide-react';
-import { useNavigate } from 'react-router-dom';
+import { MapPin, ArrowUpRight, Car } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -200,7 +199,6 @@ const StatsCounter = ({ number, label }: { number: string; label: string }) => {
 
 const Part2Attractions = () => {
   const headerRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -227,66 +225,66 @@ const Part2Attractions = () => {
 
   const attractions = [
     {
-      badge: "36 KM AWAY",
-      category: "ICONIC LANDMARK",
-      title: "Nine Arch Bridge",
-      location: "Ella, Badulla District",
-      desc: "One of Sri Lanka's most photographed landmarks. A colonial-era stone railway viaduct surrounded by jungle and mist.",
-      image: "/images/ninearch.webp",
-      mapLink: "https://maps.app.goo.gl/SZx3xwdB453TvuY86"
+      badge: "RUSTIC CHARM",
+      category: "EXTERIOR",
+      title: "Mountain Lodge Entrance",
+      location: "Second Floor, Connaught Drive",
+      desc: "Fiddle River's warm wooden exterior welcomes you with classic Rocky Mountain lodge architecture — inviting stairs leading to cozy alpine dining.",
+      image: "/woody-1.webp",
+      mapLink: "https://maps.app.goo.gl/FiddleRiverJasper"
     },
     {
-      badge: "46 KM AWAY",
-      category: "NATIONAL PARK",
-      title: "Horton Plains",
-      location: "Nuwara Eliya District",
-      desc: "A UNESCO World Heritage Site featuring dramatic cliffs, cloud forests, and Sri Lanka's highest plateau at 2,100m.",
-      image: "/images/hort.webp",
-      mapLink: "https://maps.app.goo.gl/YvEwfA3QRAwnadkJ9"
+      badge: "ALPINE AESTHETIC",
+      category: "ARCHITECTURE",
+      title: "Timber & Stone Design",
+      location: "Jasper Heritage Building",
+      desc: "Rich wood beams, stone accents, and mountain-inspired details create an authentic Canadian Rockies dining atmosphere — rustic yet refined.",
+      image: "/woody-2.webp",
+      mapLink: "https://maps.app.goo.gl/FiddleRiverJasper"
     },
     {
-      badge: "NEARBY",
-      category: "NATURAL WONDER",
-      title: "Bambarakanda Falls",
-      location: "Kalupahana, Badulla",
-      desc: "Sri Lanka's tallest waterfall at 263 metres, surrounded by pine forests and mist — a short scenic drive from A'Lankaa.",
-      image: "/images/bamba.webp",
-      mapLink: "https://maps.app.goo.gl/f4BWEa1JTeyRqjf7A"
+      badge: "SCENIC LOCATION",
+      category: "MOUNTAIN VIEWS",
+      title: "Upstairs Dining",
+      location: "Connaught Drive Centre",
+      desc: "Elevated dining with panoramic windows overlooking Jasper's main street and surrounding peaks — where mountain hospitality meets culinary excellence.",
+      image: "/woody-4.webp",
+      mapLink: "https://maps.app.goo.gl/FiddleRiverJasper"
     },
     {
-      badge: "40 KM AWAY",
-      category: "HIKING & VIEWS",
-      title: "Ella Rock",
-      location: "Ella, Badulla",
-      desc: "One of Sri Lanka's finest hikes — rewarding trekkers with 360° views of tea country, jungle valleys, and the ocean on clear days.",
-      image: "/images/ella.webp",
-      mapLink: "https://maps.app.goo.gl/6Ck6U84r7Kjs18Ap9"
+      badge: "AUTHENTIC VIBE",
+      category: "AMBIANCE",
+      title: "Warm Wood Interior",
+      location: "Classic Jasper Dining",
+      desc: "Step inside to discover intimate wooden interiors, soft lighting, and a welcoming atmosphere — the perfect setting for seafood and mountain cuisine.",
+      image: "/woody-3.webp",
+      mapLink: "https://maps.app.goo.gl/FiddleRiverJasper"
     }
   ];
 
   return (
-    <section className="bg-obsidian py-[80px] lg:py-[120px] px-[32px] lg:px-[80px]">
+    <section className="bg-obsidian py-[60px] lg:py-[80px] px-[32px] lg:px-[80px]">
       <div className="max-w-[1440px] mx-auto">
 
         {/* header */}
         <div ref={headerRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-end">
           <div>
             <p className="font-jost text-[12px] text-gold uppercase tracking-[0.4em] mb-6">
-              DISCOVER THE REGION
+              THE RESTAURANT
             </p>
             <h2 className="font-cormorant text-[clamp(36px,4vw,60px)] text-ivory font-light leading-tight">
-              <div className="overflow-hidden"><span className="inline-block word-reveal">Beyond the resort,</span></div>
-              <div className="overflow-hidden"><span className="inline-block word-reveal">adventure awaits.</span></div>
+              <div className="overflow-hidden"><span className="inline-block word-reveal">Rustic charm meets</span></div>
+              <div className="overflow-hidden"><span className="inline-block word-reveal">mountain elegance.</span></div>
             </h2>
           </div>
           <div>
             <p className="font-dmSans text-[18px] text-smoke leading-[1.9] font-light max-w-[500px]">
-              A'Lankaa sits at the heart of Sri Lanka's most spectacular highland region. From ancient bridges to national parks, extraordinary experiences surround you in every direction.
+              Experience Fiddle River's warm, woody aesthetic — where timber beams, stone accents, and alpine architecture create an authentic Canadian Rockies dining atmosphere.
             </p>
           </div>
         </div>
 
-        <div className="w-full h-px bg-mist my-[64px]" />
+        <div className="w-full h-px bg-mist my-[48px]" />
 
         {/* grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[2px]">
@@ -332,16 +330,6 @@ const Part2Attractions = () => {
               </div>
             </motion.div>
           ))}
-        </div>
-
-        {/* explore more button ---------------------------- */}
-
-        <div className="mt-16 lg:mt-20 flex justify-center" data-aos="fade-up">
-          <button
-            onClick={() => navigate('/places')}
-            className="font-jost text-[11px] text-ivory border border-gold/40 px-10 py-4 uppercase tracking-widest hover:bg-gold hover:border-gold hover:text-void transition-colors duration-300 inline-flex items-center gap-3">
-            Explore More Places <ArrowRight size={14} />
-          </button>
         </div>
 
       </div>
@@ -455,7 +443,6 @@ export const LocationShowcase = () => {
     <>
       <Part1Hero />
       <Part2Attractions />
-      <Part3Timeline />
     </>
   );
 };

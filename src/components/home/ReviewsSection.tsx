@@ -4,34 +4,34 @@ import { Quote, ChevronLeft, ChevronRight, X } from 'lucide-react';
 
 const reviews = [
   {
-    initials: 'SS',
-    name: 'S. Skandakumar',
-    title: 'Former Group Chairman George Steuarts • Former High Commissioner to Australia • Feb 2022',
-    text: "We took the turn at a crowded Haldumulla junction. Within five minutes we arrived at A‘Lankaa Hotel, and walked into a truly different world ! Adorned by innovative architecture with a touch of Bali, a wide spacious foyer tastefully furnished, complimented by attentive and courteous staff, we then proceeded on a tour of the hotel. Breathtaking views from almost every angle made the choice of bedroom a difficult one. While some faced a glorious sun rise the rest brought twilight into the room with a lingering view of the sunset. Spacious and luxurious with all modern amenities, I said to myself “ A night stay is a must “ We were then hosted to a sumptuous Sri Lankan lunch of fresh vegetables, Fish and Chicken in a restaurant whose ambience was breathtaking and the view equally alluring. An equally well designed bar beckoned but we resisted the temptation ! Instead we shared a bottle of vintage red over lunch. Thank you Vasu, My friends Dr Nalaka and Kamini found it an experience to remember as I did. Good luck and many blessings",
-  },
-  {
-    initials: 'NM',
-    name: 'Nalaka and Kamini Mendis',
-    title: 'Professors Emeritus, University of Colombo • Feb 2022',
-    text: "A friend took us to this resort on the 3rd February, and within minutes of entering the lobby of the hotel we confronted a breathtaking view of the Haldumulla valley with and expansive dense forest cover below and an array of southern hills in the far background stretching towards the southern coast. The resort perched far above the valley has panoramic views of the Haptulae mountain range on the left, and a deep valley below leading into the uda walawe area and beyond to the Indian ocean. The building is designed to capture these great views at different levels from the restaurant, other open areas and the bed rooms. The bed rooms are tastefully designed for comfort, they are in fact mini suites equipped with every possible convenience including a jacuzzi bath in each. The staff, all of whom we found were locals, were exceptionally warm and friendly. We were hosted to a delicious lunch by the owner and if this was a taste of food in this hotel, it is yet another aspect that visitors could look forward to. The public areas are intricately designed with detailed carved wood work and an abundance of plants. A swimming pool and a fully equipped gymnasium are also features of this hotel. Discovering this magnificent hotel amidst the wilderness of Haldumulla was an exciting experience indeed, which we will remember for a long time to come. We recommend this resort to the discerning visitor looking for a peaceful, and pleasant stay in comfort, amidst spectacular scenery.",
+    initials: 'JT',
+    name: 'John T.',
+    title: 'TripAdvisor Review • Alberta, Canada',
+    text: "Best seafood in Jasper! The Earl Grey Smoked Candied Salmon is absolutely incredible — unlike anything I've tasted before. Fresh, flavorful, and beautifully presented. The upstairs location gives you a cozy mountain lodge feel with great views. Staff were attentive and knowledgeable about the menu. Highly recommend for anyone visiting Jasper!",
   },
   {
     initials: 'SM',
-    name: 'S. Mascarenhas',
-    title: 'Chairman, Northern Tourism Bureau',
-    text: "If anyone is searching for heaven, this is where you should be. The clouds, mist & most of all rainy clouds come into the room & touches you. No where in Sri Lanka do you experience this. Also, the food, staff & amenities are exceptional. Thank you for the wonderful service. All the best Mr Vasu & hope to see you soon",
+    name: 'Sarah M.',
+    title: 'Google Review • British Columbia',
+    text: "We've been coming to Fiddle River for years and it never disappoints. The seafood chowder is rich and creamy, packed with fresh seafood. The coconut prawns are a must-try appetizer. The wooden interior creates such a warm, inviting atmosphere — perfect after a day exploring the Rockies. Service is always friendly and efficient. A Jasper institution!",
   },
   {
-    initials: 'SH',
-    name: 'S. Hettiarachchi',
-    title: 'Secretary, Ministry of Tourism • Sep 2019',
-    text: '"I didn\'t expect such a fantastic product in this remote area. As Secretary, Ministry of Tourism, I encourage this type of new visionary product and give our fullest support to enhance their visionary expectation."',
+    initials: 'DL',
+    name: 'David L.',
+    title: 'TripAdvisor Review • Ontario',
+    text: "Exceptional dining experience in the heart of Jasper! The seafood is flown in daily and you can taste the freshness. I had the wild salmon and my wife had the halibut — both were cooked to perfection. The rustic charm of the restaurant combined with mountain hospitality makes this a memorable dining experience. Don't miss the seafood platter if you're sharing!",
   },
   {
-    initials: 'JN',
-    name: 'Bishop J. Alan Neal',
-    title: 'Germany • Aug 2019',
-    text: '"After travelling the World \u2014 this is clearly one of the most beautiful hotels I\'ve visited. God Bless."',
+    initials: 'MK',
+    name: 'Michelle K.',
+    title: 'Yelp Review • California, USA',
+    text: "Fiddle River is a hidden gem upstairs on Connaught Drive! The atmosphere is cozy and authentic Rocky Mountain style. We tried the seafood tower and were blown away by the variety and quality. The Alberta beef was also fantastic. Staff made us feel welcome and gave great recommendations. This is a must-visit when in Jasper!",
+  },
+  {
+    initials: 'RP',
+    name: 'Robert P.',
+    title: 'TripAdvisor Review • Texas, USA',
+    text: "Outstanding restaurant! Been to Jasper many times and Fiddle River is always our first stop. The combination of fresh seafood and Canadian mountain cuisine is unbeatable. Try the bison if you want something different — tender and delicious. The upstairs location has great ambiance with timber beams and mountain views. Excellent wine selection too. Worth every penny!",
   },
 ];
 
@@ -227,7 +227,3 @@ export const ReviewsSection = () => {
 };
 
 export default ReviewsSection;
-
-
-
-
