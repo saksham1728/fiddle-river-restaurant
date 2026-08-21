@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect } from 'react';
 import { motion } from 'framer-motion';
 
 interface MenuItem {
@@ -11,8 +11,6 @@ interface MenuItem {
 
 const Menu = () => {
   const [activeTab, setActiveTab] = useState<'lunch' | 'dinner' | 'drinks' | 'happy'>('lunch');
-  const vantaRef = useRef<HTMLDivElement>(null);
-  const vantaEffect = useRef<any>(null);
 
   // Helper function to display badge text
   const getBadgeText = (badge: string) => {
@@ -29,52 +27,6 @@ const Menu = () => {
     
     return () => {
       document.body.classList.remove('menu-page');
-    };
-  }, []);
-
-  // Initialize Vanta.js Topology
-  useEffect(() => {
-    const initVanta = () => {
-      if (!vantaEffect.current && vantaRef.current) {
-        // Check if VANTA is loaded
-        if (typeof (window as any).VANTA !== 'undefined') {
-          try {
-            vantaEffect.current = (window as any).VANTA.TOPOLOGY({
-              el: vantaRef.current,
-              mouseControls: true,
-              touchControls: true,
-              gyroControls: false,
-              minHeight: 200.00,
-              minWidth: 200.00,
-              scale: 1.00,
-              scaleMobile: 1.00,
-              color: 0xb8965a,
-              backgroundColor: 0x0f2319
-            });
-            console.log('Vanta Topology initialized successfully');
-          } catch (error) {
-            console.error('Error initializing Vanta:', error);
-          }
-        } else {
-          // Retry after a delay if VANTA not loaded yet
-          console.log('Waiting for VANTA to load...');
-          setTimeout(initVanta, 100);
-        }
-      }
-    };
-
-    // Add a small delay to ensure DOM is ready
-    const timer = setTimeout(initVanta, 500);
-    
-    return () => {
-      clearTimeout(timer);
-      if (vantaEffect.current) {
-        try {
-          vantaEffect.current.destroy();
-        } catch (error) {
-          console.error('Error destroying Vanta:', error);
-        }
-      }
     };
   }, []);
 
@@ -248,7 +200,7 @@ const Menu = () => {
   };
 
   return (
-    <div ref={vantaRef} className="min-h-screen relative">
+    <div className="min-h-screen relative bg-gradient-to-b from-[#0f2319] via-[#1a3d2e] to-[#0f2319]">
       {/* Menu Tabs - Responsive */}
       <div className="border-y border-[#3d6a55]/40 sticky top-[72px] lg:top-[80px] z-40 bg-[#1a3d2e]/80 backdrop-blur-xl shadow-lg overflow-x-auto">
         <div className="max-w-4xl mx-auto">

@@ -4,11 +4,10 @@ import ContactHero from '../components/contact/ContactHero';
 import ContactForm from '../components/contact/ContactForm';
 import ContactInfoCard from '../components/contact/ContactInfoCard';
 import ContactMapSection from '../components/contact/ContactMapSection';
-import ContactFAQ from '../components/contact/ContactFAQ';
 
 const Contact = () => {
   useEffect(() => {
-    document.title = "Contact | A'Lankaa Resorts & Spa";
+    document.title = "Contact | Fiddle River Restaurant";
     window.scrollTo(0, 0);
   }, []);
 
@@ -39,8 +38,6 @@ const Contact = () => {
       </section>
 
       <ContactMapSection />
-      
-      <ContactFAQ />
     </motion.main>
   );
 };
